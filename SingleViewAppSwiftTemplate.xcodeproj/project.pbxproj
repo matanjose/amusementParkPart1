@@ -16,6 +16,8 @@
 		3A8AADE91DF9B85E00A2B931 /* SingleViewAppSwiftTemplateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8AADE81DF9B85E00A2B931 /* SingleViewAppSwiftTemplateUITests.swift */; };
 		821BB9971F4F48580057B602 /* Areas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB9961F4F48580057B602 /* Areas.swift */; };
 		821BB9991F4F5B630057B602 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB9981F4F5B630057B602 /* People.swift */; };
+		821BB99B1F5369C20057B602 /* EntrantDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB99A1F5369C20057B602 /* EntrantDatabase.swift */; };
+		821BB99D1F5477730057B602 /* PermissionsAndBenefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB99C1F5477730057B602 /* PermissionsAndBenefits.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		3A8AADEA1DF9B85E00A2B931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821BB9961F4F48580057B602 /* Areas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Areas.swift; sourceTree = "<group>"; };
 		821BB9981F4F5B630057B602 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		821BB99A1F5369C20057B602 /* EntrantDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantDatabase.swift; sourceTree = "<group>"; };
+		821BB99C1F5477730057B602 /* PermissionsAndBenefits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsAndBenefits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				3A8AADCA1DF9B85E00A2B931 /* ViewController.swift */,
 				821BB9961F4F48580057B602 /* Areas.swift */,
 				821BB9981F4F5B630057B602 /* People.swift */,
+				821BB99C1F5477730057B602 /* PermissionsAndBenefits.swift */,
+				821BB99A1F5369C20057B602 /* EntrantDatabase.swift */,
 				3A8AADCC1DF9B85E00A2B931 /* Main.storyboard */,
 				3A8AADCF1DF9B85E00A2B931 /* Assets.xcassets */,
 				3A8AADD11DF9B85E00A2B931 /* LaunchScreen.storyboard */,
@@ -266,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				821BB9991F4F5B630057B602 /* People.swift in Sources */,
+				821BB99B1F5369C20057B602 /* EntrantDatabase.swift in Sources */,
+				821BB99D1F5477730057B602 /* PermissionsAndBenefits.swift in Sources */,
 				821BB9971F4F48580057B602 /* Areas.swift in Sources */,
 				3A8AADCB1DF9B85E00A2B931 /* ViewController.swift in Sources */,
 				3A8AADC91DF9B85E00A2B931 /* AppDelegate.swift in Sources */,

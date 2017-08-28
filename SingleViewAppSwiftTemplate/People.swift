@@ -12,35 +12,50 @@ enum PersonType {
     case freeChildGuest
 }
 
+enum Areas {
+    case amusement
+    case kitchen
+    case rideControl
+    case maintenance
+    case office
+}
+
+enum Discounts {
+    case food10
+    case food15
+    case merchandise20
+    case merchandise25
+    
+}
+
 struct entrant {
     let entrantType: PersonType
-    var canAccess: [Area : Bool] {
+    var canAccess: [Areas : Bool] {
         switch self.entrantType {
         case .classicGuest :
-            return [.amusement : true, .kitchen : false, .maintenance : false, .office : false, .rideControl : false]
+            return classicGuestAreas
         case .freeChildGuest :
-            return [.amusement : false, .kitchen : false, .maintenance : false, .office : false, .rideControl : true]
+            return freeChildGuestAreas
         case .vipGuest :
-            return [.amusement : true, .kitchen : true, .maintenance : true, .office : true, .rideControl : true]
+            return vipGuestAreas
         }
     }
     
-    func hasAccess(to: Area) -> Bool {
-        if canAccess[to] == true {
-            return true
-        } else {
-            return false
+    var receivesDiscountFor: [Discounts : Bool] {
+        switch self.entrantType {
+        case .classicGuest, .freeChildGuest :
+            return classicAndFreeChildGuestDiscounts
+        case .vipGuest :
+            return vipGuestDiscounts
         }
     }
+
 }
 
-let classicGuest = entrant(entrantType: .classicGuest)
-let freeChildGuest = entrant(entrantType: .freeChildGuest)
-let vipGuest = entrant(entrantType: .vipGuest)
 
 
 
-/*
+
 let accessDict = vipGuest.canAccess
 let kitchenAccess = accessDict[.kitchen]
 
@@ -48,5 +63,5 @@ func printKitchenAccess() {
     let finalKitchenAccess = kitchenAccess!
     print(finalKitchenAccess)
 }
-*/
+
 
