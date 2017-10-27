@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 //Area Permissions
 let classicGuestAreas: [Areas : Bool] = [.amusement : true, .kitchen : false, .maintenance : false, .office : false, .rideControl : false]
 
@@ -23,5 +23,5 @@ let vipGuestDiscounts: [Discounts : Bool] = [.food10 : false, .food15 : false, .
 
 //Priority Ride Access
 
-
+*/
 

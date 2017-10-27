@@ -8,9 +8,11 @@
 
 import Foundation
 
-let classicGuest = entrant(entrantType: .classicGuest)
-let freeChildGuest = entrant(entrantType: .freeChildGuest)
-let vipGuest = entrant(entrantType: .vipGuest)
+let classicGuest = Entrant(entrantType: .classicGuest)
+let freeChildGuest = Entrant(entrantType: .freeChildGuest)
+let vipGuest = Entrant(entrantType: .vipGuest)
+
+
 
 
 
