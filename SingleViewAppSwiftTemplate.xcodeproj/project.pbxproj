@@ -20,6 +20,7 @@
 		824A111E1F672CE10034EC8F /* Entrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A111D1F672CE10034EC8F /* Entrants.swift */; };
 		B29334F21FA8F26800F7F76D /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29334F11FA8F26800F7F76D /* Locations.swift */; };
 		B29334F41FA8FDCE00F7F76D /* LocationsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */; };
+		B2AC0BCA1FA9122A0005C43C /* sparecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC0BC91FA9122A0005C43C /* sparecode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		824A111D1F672CE10034EC8F /* Entrants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entrants.swift; path = ../Entrants.swift; sourceTree = "<group>"; };
 		B29334F11FA8F26800F7F76D /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDatabase.swift; sourceTree = "<group>"; };
+		B2AC0BC91FA9122A0005C43C /* sparecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparecode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				821BB9981F4F5B630057B602 /*  EntrantTypesAndPermissions.swift */,
 				824A111D1F672CE10034EC8F /* Entrants.swift */,
 				B29334F11FA8F26800F7F76D /* Locations.swift */,
+				B2AC0BC91FA9122A0005C43C /* sparecode.swift */,
 				B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */,
 				821BB99E1F547DE70057B602 /* Errors.swift */,
 				821BB99A1F5369C20057B602 /* EntrantDatabase.swift */,
@@ -285,6 +288,7 @@
 				3A8AADCB1DF9B85E00A2B931 /* ViewController.swift in Sources */,
 				B29334F41FA8FDCE00F7F76D /* LocationsDatabase.swift in Sources */,
 				B29334F21FA8F26800F7F76D /* Locations.swift in Sources */,
+				B2AC0BCA1FA9122A0005C43C /* sparecode.swift in Sources */,
 				824A111E1F672CE10034EC8F /* Entrants.swift in Sources */,
 				3A8AADC91DF9B85E00A2B931 /* AppDelegate.swift in Sources */,
 				821BB99F1F547DE70057B602 /* Errors.swift in Sources */,

@@ -13,16 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("Kid Joey is a \(kidJoey.entrantType)")
+       print("Kid Joey is a \(kidJoey.entrantType)")
         northGate.swipe(name: kidJoey)
-        rollercoaster.swipe(name: kidJoey)
-        
-        print("")
-        
+        rollerCoaster.swipe(name: kidJoey)
+        mainStore.swipe(name: kidJoey)
+    
+        print("1")
+     
         print("Harry Potter is a \(harryPotter.entrantType)")
         northGate.swipe(name: harryPotter)
-        rollercoaster.swipe(name: harryPotter)
-        
+        rollerCoaster.swipe(name: harryPotter)
+        mainStore.swipe(name: harryPotter)
+      
         
         
        }
