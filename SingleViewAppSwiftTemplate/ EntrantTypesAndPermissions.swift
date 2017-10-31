@@ -10,6 +10,10 @@ enum PersonOfType {
     case classicGuest
     case vipGuest
     case freeChildGuest
+    case foodServices
+    case rideServices
+    case maintenanceWorker
+    case manager
 }
 
 extension PersonOfType {
@@ -18,6 +22,10 @@ extension PersonOfType {
         switch self {
         case .classicGuest, .freeChildGuest, .vipGuest:
             return [ .amusement ]
+        case .foodServices : return [ .amusement, .kitchen]
+        case .rideServices : return [ .amusement, .rideControl]
+        case .maintenanceWorker : return [ .amusement, .kitchen, .rideControl, .maintenance]
+        case .manager : return [.amusement, .kitchen, .rideControl, .maintenance, .office]
         }
     }
     
@@ -27,12 +35,16 @@ extension PersonOfType {
             return []
         case .vipGuest:
             return [ .food10, .merchandise20 ]
+        case .foodServices, .rideServices, .maintenanceWorker:
+            return [.food15, .merchandise25]
+        case .manager :
+            return [.food25, .merchandise25]
         }
     }
     
     var hasRidePrivilegesTo: [ RidePrivilege ] {
         switch self {
-        case .classicGuest, .freeChildGuest:
+        case .classicGuest, .freeChildGuest, .maintenanceWorker, .foodServices, .rideServices, .manager:
             return [ .accessAllRides ]
         case .vipGuest:
             return [ .accessAllRides, .skipLines]
@@ -52,6 +64,7 @@ enum Area {
 enum Discount {
     case food10
     case food15
+    case food25
     case merchandise20
     case merchandise25
     
@@ -63,64 +76,3 @@ enum RidePrivilege {
 }
 
 
-/*
-struct entrant {
-    let entrantType: PersonType
-    var canAccess: [Areas : Bool] {
-        switch self.entrantType {
-        case .classicGuest :
-            return classicGuestAreas
-        case .freeChildGuest :
-            return freeChildGuestAreas
-        case .vipGuest :
-            return vipGuestAreas
-        }
-    }
-    
-    var receivesDiscountFor: [Discounts : Bool] {
-        switch self.entrantType {
-        case .classicGuest, .freeChildGuest :
-            return classicAndFreeChildGuestDiscounts
-        case .vipGuest :
-            return vipGuestDiscounts
-        }
-    }
-    
-}
-
-extension entrant {
-    func checkAreaAccess(to: Areas) /*throws*/ -> Bool {
-        var isAccessible = false
-        for (location, permission) in canAccess {
-            if location != to {
-                continue
-            }
-            if location == to && permission == true {
-                isAccessible = true
-            } else if
-                location == to && permission == false {
-                isAccessible = false
-            } else if
-                location != to {
-                continue
-            }
-            //insert error here after reviewing errors
-        }
-        return isAccessible
-    }
-
-}
-
-
-
-
-
-let accessDict = vipGuest.canAccess
-let kitchenAccess = accessDict[.kitchen]
-
-func printKitchenAccess() {
-    let finalKitchenAccess = kitchenAccess!
-    print(finalKitchenAccess)
-}
-
-*/

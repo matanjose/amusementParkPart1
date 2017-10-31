@@ -13,22 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("free child guest")
-      freeChildGuest.checkAreaAccess()
-        freeChildGuest.checkDiscountAccess()
-        freeChildGuest.checkRidePrivileges()
-        
-        print("VIP Guest")
-        vipGuest.checkAreaAccess()
-        vipGuest.checkDiscountAccess()
-        vipGuest.checkRidePrivileges()
-        
-        print("Regular Guest")
-        classicGuest.checkAreaAccess()
-        classicGuest.checkDiscountAccess()
-        classicGuest.checkRidePrivileges()
-        
-    }
+        print("\(kidJoey.entrantType)")
+        rollercoaster.swipe(name: kidJoey)
+       }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
