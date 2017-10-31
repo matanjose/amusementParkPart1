@@ -9,6 +9,7 @@
 import Foundation
 
 let kidJoey = FreeChildGuest(age: 4)
+let harryPotter = VIPGuest()
 
 
 

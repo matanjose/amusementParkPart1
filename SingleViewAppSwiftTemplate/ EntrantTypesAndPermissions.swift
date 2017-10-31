@@ -75,4 +75,8 @@ enum RidePrivilege {
     case skipLines
 }
 
-
+enum SwipeType {
+    case rides
+    case access
+    case discounts
+}

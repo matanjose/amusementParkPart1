@@ -13,9 +13,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("\(kidJoey.entrantType)")
+        print("Kid Joey is a \(kidJoey.entrantType)")
+        northGate.swipe(name: kidJoey)
         rollercoaster.swipe(name: kidJoey)
+        
+        print("")
+        
+        print("Harry Potter is a \(harryPotter.entrantType)")
+        northGate.swipe(name: harryPotter)
+        rollercoaster.swipe(name: harryPotter)
+        
+        
+        
        }
+    
     
     
     override func didReceiveMemoryWarning() {

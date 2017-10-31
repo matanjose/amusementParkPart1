@@ -8,7 +8,10 @@
 
 import Foundation
 
-var rollercoaster = Ride(name: "rollercoaster")
+let rollercoaster = Ride(name: "rollercoaster")
+let northGate = EntryPoint(name: "North Gate")
+let mainStore = Shopping(name: "Main Store")
+
 
 
 
