@@ -31,6 +31,11 @@ class Entrant {
             return date
         }
     }
+    
+    var ageIsStillValid: Bool {
+        get { return true}
+        set {}
+    }
 }
 
 class VIPGuest: Entrant {
@@ -48,11 +53,31 @@ class FreeChildGuest: Entrant {
         }
         set {}
     }
-
     
-    
+    override var ageIsStillValid: Bool {
+        get {
+            
+                let todayDateComponents = userCalendar.dateComponents([.year, .month, .day], from: currentDate)
+                // let todayNoTimeData = userCalendar.date(from: todayDateComponents)
+                let fiveYearsAgo = todayDateComponents.year! - 5
+                
+                var fiveYearsAgoTodayDateComponents = DateComponents()
+                fiveYearsAgoTodayDateComponents.day = todayDateComponents.day
+                fiveYearsAgoTodayDateComponents.month = todayDateComponents.month
+                fiveYearsAgoTodayDateComponents.year = fiveYearsAgo
+                let fiveYearsAgoToday = userCalendar.date(from: fiveYearsAgoTodayDateComponents)
+                
+                let dateComparison = userCalendar.compare(birthdate!, to: fiveYearsAgoToday!, toGranularity: .day)
+                switch dateComparison {
+                case .orderedSame, .orderedDescending:
+                    return true
+                case .orderedAscending:
+                    return false
+                
+            }
+        }
+        set {}
+    }
    
-    
-    
 }
 

@@ -11,7 +11,7 @@ import Foundation
 let harryPotter = VIPGuest()
 let andrew = Entrant(birthday: "7/2/1983")
 let matthew = VIPGuest(birthday: "6/9/1981")
-
+let babyJoey = FreeChildGuest(birthday: "3/21/2000")
 
 
 

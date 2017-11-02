@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         
         print("Matthew is a \(matthew.entrantType)")
         print("Matthew's birthday is \(String(describing: matthew.birthdate))")
+        
+        print("1")
+        
+        print("Baby Joey is a \(babyJoey.entrantType)")
+        print("Baby Joey's birthday is \(String(describing: babyJoey.birthdate))")
+        print("Baby Joey's pass is still valid: \(babyJoey.ageIsStillValid)")
       
         
         

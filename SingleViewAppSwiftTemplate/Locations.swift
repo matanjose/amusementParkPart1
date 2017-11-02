@@ -38,20 +38,10 @@ class EntryPoint: Location {
     override func swipe(name: Entrant) {
         let permission = name.entrantType.canAccess
         let accessType = self.locationType
-        /*
+        
         //Checking for required information
-        switch name.entrantType {
-        case .classicGuest,.vipGuest:
-            break
-        case .freeChildGuest:
-            //check that there is a birthdate, and that it is less than five years from today
-            if name.birthdate == nil {
-                print("Requirede birthdate information is missing, please go to customer service to provide this information")
-            } else {
- 
-            }
-        }
-        */
+        
+        
         if permission.contains(accessType!) {
             print("Access to \(self.name) granted")
         } else {
