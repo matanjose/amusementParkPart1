@@ -9,10 +9,27 @@
 import Foundation
 
 class Entrant {
+    //determines type of entrant, to establish restrictions and/or privileges
     var entrantType: PersonOfType { get {
         return .classicGuest
         }
         set {}
+    }
+    //Birthday Info, generally optional
+    var birthdayString: String?
+    init() {}
+    init(birthday: String?) {
+        self.birthdayString = birthday
+    }
+    var birthdate: Date? {
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        switch birthdayString {
+        case .none:
+            return nil
+        case .some:
+            let date = dateFormatter.date(from: birthdayString!)
+            return date
+        }
     }
 }
 
@@ -25,11 +42,7 @@ class VIPGuest: Entrant {
 }
 
 class FreeChildGuest: Entrant {
-    var age: Int
-    init(age: Int) {
-        self.age = age
-        super.init()
-    }
+
     override var entrantType: PersonOfType { get {
         return .freeChildGuest
         }

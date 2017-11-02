@@ -8,8 +8,10 @@
 
 import Foundation
 
-let kidJoey = FreeChildGuest(age: 4)
 let harryPotter = VIPGuest()
+let andrew = Entrant(birthday: "7/2/1983")
+let matthew = VIPGuest(birthday: "6/9/1981")
+
 
 
 
