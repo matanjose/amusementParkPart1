@@ -8,6 +8,13 @@
 
 import Foundation
 
-enum PermissionsError: Error {
-    case permissionUnavailable
+enum MissingRequiredData: Error {
+    case noBirthDate(description: String)
+    case noFirstName(description: String)
+    case noLastName(description: String)
+    case noStreetAddress(description: String)
+    case noCity(description: String)
+    case noState(description: String)
+    case noZipCode(description: String)
+    
 }

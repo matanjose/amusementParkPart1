@@ -32,6 +32,30 @@ class Entrant {
         }
     }
     
+    func checkForRequiredData() {
+
+    }
+    
+    var todayIsYourBirthday: Bool? {
+        if birthdate != nil {
+            let todayDateComponents = userCalendar.dateComponents([.month, .day], from: currentDate)
+            let todayJustMonthAndDay = userCalendar.date(from: todayDateComponents)
+            let birthdayDateComponents = userCalendar.dateComponents([.month, .day], from: birthdate!)
+            let birthdateJustMonthAndDay = userCalendar.date(from: birthdayDateComponents)
+        
+            let birthdayComparison = userCalendar.compare(birthdateJustMonthAndDay!, to: todayJustMonthAndDay!, toGranularity: .day)
+        
+            switch birthdayComparison {
+            case .orderedSame:
+                return true
+            default:
+                return false
+            }
+        } else {
+            return nil
+        }
+    }
+    
     var ageIsStillValid: Bool {
         get { return true}
         set {}
@@ -58,7 +82,6 @@ class FreeChildGuest: Entrant {
         get {
             
                 let todayDateComponents = userCalendar.dateComponents([.year, .month, .day], from: currentDate)
-                // let todayNoTimeData = userCalendar.date(from: todayDateComponents)
                 let fiveYearsAgo = todayDateComponents.year! - 5
                 
                 var fiveYearsAgoTodayDateComponents = DateComponents()
@@ -78,6 +101,5 @@ class FreeChildGuest: Entrant {
         }
         set {}
     }
-   
 }
 

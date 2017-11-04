@@ -51,6 +51,17 @@ extension PersonOfType {
 
         }
     }
+    
+    var dataRequiredForProfile: [ RequiredData ] {
+        switch self {
+        case .classicGuest, .vipGuest:
+            return [ .none ]
+        case .freeChildGuest:
+            return [ .birthdate ]
+        case .foodServices, .maintenanceWorker, .manager, .rideServices:
+            return [ .firstName, .lastName, .streetAddress, .city, .state, .zipCode ]
+        }
+    }
 }
 
 enum Area {
@@ -79,4 +90,15 @@ enum SwipeType {
     case rides
     case access
     case discounts
+}
+
+enum RequiredData {
+    case none
+    case birthdate
+    case firstName
+    case lastName
+    case streetAddress
+    case city
+    case state
+    case zipCode
 }

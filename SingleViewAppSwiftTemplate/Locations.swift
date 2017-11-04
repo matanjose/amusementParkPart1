@@ -19,6 +19,7 @@ class Location {
     }
     
     func swipe(name: Entrant) {
+       
     }
     
    
@@ -41,11 +42,23 @@ class EntryPoint: Location {
         
         //Checking for required information
         
+       
         
         if permission.contains(accessType!) {
             print("Access to \(self.name) granted")
         } else {
             print("Access to \(self.name) denied")
+        }
+        
+        //Happy Birthday Message
+        guard let isTodayYourBirthday = name.todayIsYourBirthday  else {
+            return print("We don't have your birthday information on file. You can add it with Customer Service to receive a special birthday greeting on your birthday.")
+        }
+        switch isTodayYourBirthday {
+        case true:
+            print("Happy Birthday!")
+        default:
+            return
         }
     }
 }
