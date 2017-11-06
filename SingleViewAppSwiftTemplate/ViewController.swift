@@ -14,9 +14,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        for passToSwipe in testPasses {
-            print(passToSwipe.entrantType)
-            northGate.swipe(pass: passToSwipe)
+        for exampleLocation in locationsCollection {
+            for passToSwipe in testPasses {
+                print(passToSwipe.entrantType)
+                print(exampleLocation.name)
+                exampleLocation.swipe(pass: passToSwipe)
+                print()
+                print("-------------")
+                print()
+            }
         }
         
     }
