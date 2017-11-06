@@ -12,6 +12,7 @@ import Foundation
 let classicGuestWBirthdate = Entrant(firstName: nil, lastName: nil, birthdate: "11/1/2000", streetAddress: nil, city: nil, state: nil, zipCode: nil)
 let classicGuestPlain = Entrant()
 let freeChildGuestExpired = FreeChildGuest(firstName: nil, birthdate: "11/1/2000")
+let freeChildGuestNoBirthday = FreeChildGuest(firstName: nil, birthdate: nil)
 let freeChildGuestValid = FreeChildGuest(firstName: nil, birthdate: "11/1/2015")
 let VIPGuestPlain = VIPGuest()
 
@@ -26,13 +27,14 @@ let classicGuestPlainPass = generatePass(from: classicGuestPlain)
 let classicGuestWBirthdatePass = generatePass(from: classicGuestWBirthdate)
 let freeChildGuestValidPass = generatePass(from: freeChildGuestValid)
 let freeChildGuestExpiredPass = generatePass(from: freeChildGuestExpired)
+let freeChildGuestNoBirthdayPass = generatePass(from: freeChildGuestNoBirthday)
 let VIPGuestPlainPass = generatePass(from: VIPGuestPlain)
 let managerPlainPass = generatePass(from: managerPlain)
 let foodPlainPass = generatePass(from: foodPlain)
 let ridePlainPass = generatePass(from: ridePlain)
 let maintenancePlainPass = generatePass(from: maintenancePlain)
 
-let testPasses: [Pass] = [classicGuestPlainPass, classicGuestWBirthdatePass, freeChildGuestValidPass, freeChildGuestExpiredPass, VIPGuestPlainPass, managerPlainPass, foodPlainPass, ridePlainPass, maintenancePlainPass]
+let testPasses: [Pass] = [classicGuestPlainPass, classicGuestWBirthdatePass, freeChildGuestValidPass, freeChildGuestExpiredPass, freeChildGuestNoBirthdayPass, VIPGuestPlainPass, managerPlainPass, foodPlainPass, ridePlainPass, maintenancePlainPass]
 
 
 
