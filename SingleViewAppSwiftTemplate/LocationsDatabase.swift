@@ -17,8 +17,8 @@ let rideControl = EmployeeArea(name: "RideServices", location: .rideControl)
 let maintenance = EmployeeArea(name: "Maintenance", location: .maintenance)
 
 let locationsCollection: [Location] = [
- //   northGate,
- //   rollerCoaster,
+    northGate,
+    rollerCoaster,
     mainStore,
     kitchen,
     office,

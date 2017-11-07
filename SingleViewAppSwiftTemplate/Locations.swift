@@ -39,8 +39,9 @@ class EntryPoint: Location {
     }
     override func swipe(pass: Pass) {
         do { let passIsValid = try checkIfStillAValid(pass: pass)
+            try requiredDataFor(pass: pass)
             let accessType = self.locationType
-        let authorization = pass.entrantType.canAccess.contains(accessType!)
+        let authorization = pass.entrantType.canAccess.contains(accessType!) //not actually an optional, will always have a value
         switch (authorization, passIsValid) {
         case (true, true):
             print("Welcome! Enjoy the park.")
@@ -50,12 +51,27 @@ class EntryPoint: Location {
         case(false, false), (false, true):
             print("Unfortunately you do not have access, please see customer service")
         
-        }
+        } 
+        } catch MissingRequiredData.noFirstName(let description) {
+            print(description)
+        } catch MissingRequiredData.noLastName(let description) {
+            print(description)
         } catch MissingRequiredData.noBirthDate(let description) {
             print(description)
+        } catch MissingRequiredData.noAccessType(let description) {
+            print(description)
+        } catch MissingRequiredData.noStreetAddress(let description) {
+            print(description)
+        } catch MissingRequiredData.noCity(let description) {
+            print(description)
+        } catch MissingRequiredData.noState(let description) {
+            print(description)
+        } catch MissingRequiredData.noZipCode(let description) {
+            print(description)
         } catch {
-            
+            print("There has been an unspecified error")
         }
+        
     }
 }
 
@@ -72,6 +88,7 @@ class Ride: Location {
     override func swipe(pass: Pass) {
        
         do { let passIsValid = try checkIfStillAValid(pass: pass)
+            try requiredDataFor(pass: pass)
         let priviledges = pass.entrantType.hasRidePrivilegesTo
         switch passIsValid {
         case true:
@@ -86,10 +103,24 @@ class Ride: Location {
         case false:
             print("\(expiredPassMessage) We look forward to seeing you soon at \(self.name)")
         }
+        } catch MissingRequiredData.noFirstName(let description) {
+            print(description)
+        } catch MissingRequiredData.noLastName(let description) {
+            print(description)
         } catch MissingRequiredData.noBirthDate(let description) {
             print(description)
+        } catch MissingRequiredData.noAccessType(let description) {
+            print(description)
+        } catch MissingRequiredData.noStreetAddress(let description) {
+            print(description)
+        } catch MissingRequiredData.noCity(let description) {
+            print(description)
+        } catch MissingRequiredData.noState(let description) {
+            print(description)
+        } catch MissingRequiredData.noZipCode(let description) {
+            print(description)
         } catch {
-            
+            print("There has been an unspecified error")
         }
     }
 }
@@ -108,6 +139,7 @@ class Shopping: Location {
     override func swipe(pass: Pass) {
         
         do {let passIsValid = try checkIfStillAValid(pass: pass)
+            try requiredDataFor(pass: pass)
         switch passIsValid {
         case true:
             let discounts = pass.entrantType.receivesDiscountOn
@@ -128,10 +160,24 @@ class Shopping: Location {
         case false:
             print("\(expiredPassMessage)")
         }
+        } catch MissingRequiredData.noFirstName(let description) {
+            print(description)
+        } catch MissingRequiredData.noLastName(let description) {
+            print(description)
         } catch MissingRequiredData.noBirthDate(let description) {
             print(description)
+        } catch MissingRequiredData.noAccessType(let description) {
+            print(description)
+        } catch MissingRequiredData.noStreetAddress(let description) {
+            print(description)
+        } catch MissingRequiredData.noCity(let description) {
+            print(description)
+        } catch MissingRequiredData.noState(let description) {
+            print(description)
+        } catch MissingRequiredData.noZipCode(let description) {
+            print(description)
         } catch {
-            
+            print("There has been an unspecified error")
         }
     }
 }
@@ -145,6 +191,7 @@ class EmployeeArea: Location {
     override func swipe(pass: Pass) {
         
         do {let passIsValid = try checkIfStillAValid(pass: pass)
+            try requiredDataFor(pass: pass)
         
         let accessType = self.locationType
         let authorization = pass.entrantType.canAccess.contains(accessType!)
@@ -154,10 +201,24 @@ class EmployeeArea: Location {
         case(true, false),(false, false), (false, true):
             print("Access Denied")
         }
+        } catch MissingRequiredData.noFirstName(let description) {
+            print(description)
+        } catch MissingRequiredData.noLastName(let description) {
+            print(description)
         } catch MissingRequiredData.noBirthDate(let description) {
             print(description)
+        } catch MissingRequiredData.noAccessType(let description) {
+            print(description)
+        } catch MissingRequiredData.noStreetAddress(let description) {
+            print(description)
+        } catch MissingRequiredData.noCity(let description) {
+            print(description)
+        } catch MissingRequiredData.noState(let description) {
+            print(description)
+        } catch MissingRequiredData.noZipCode(let description) {
+            print(description)
         } catch {
-            
+            print("There has been an unspecified error")
         }
     }
 }

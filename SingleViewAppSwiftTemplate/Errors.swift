@@ -11,11 +11,11 @@ import Foundation
 enum MissingRequiredData: Error {
     case noBirthDate(description: String)
     case noAccessType(description: String)
- //   case noFirstName(description: String)
- //   case noLastName(description: String)
- //   case noStreetAddress(description: String)
-  //  case noCity(description: String)
-  //  case noState(description: String)
- //   case noZipCode(description: String)
+   case noFirstName(description: String)
+    case noLastName(description: String)
+    case noStreetAddress(description: String)
+    case noCity(description: String)
+    case noState(description: String)
+    case noZipCode(description: String)
     
 }

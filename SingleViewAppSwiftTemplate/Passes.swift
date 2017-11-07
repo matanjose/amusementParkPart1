@@ -54,6 +54,7 @@ func checkIfBirthday(of: Pass)  {
     }
 
 func checkIfStillAValid(pass: Pass) throws -> Bool {
+    let passType = pass.entrantType.passType
     switch pass.entrantType {
     case .classicGuest, .foodServices, .maintenanceWorker, .manager, .rideServices, .vipGuest:
         return true
@@ -68,7 +69,7 @@ func checkIfStillAValid(pass: Pass) throws -> Bool {
             let fiveYearsAgoToday = userCalendar.date(from: fiveYearsAgoTodayDateComponents)
             
             guard let bdate = pass.birthdate else {
-                throw MissingRequiredData.noBirthDate(description: "Required birthdate information is missing or corrupt")
+                throw MissingRequiredData.noBirthDate(description: "Error: Birthday information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
             }
             
             let dateComparison = userCalendar.compare(bdate, to: fiveYearsAgoToday!, toGranularity: .day)
@@ -81,6 +82,62 @@ func checkIfStillAValid(pass: Pass) throws -> Bool {
     }
 }
 
+func requiredDataFor(pass: Pass) throws {
+    let requiredData: [ RequiredData] = pass.entrantType.dataRequiredForProfile
+    let passType = pass.entrantType.passType
+    if requiredData == [.none] {}
+        
+        
+        for data in requiredData {
+            switch data {
+            case .birthdate:
+                guard let testValue = pass.birthdate else {
+                    let missingData = data.rawValue
+                    print("Access Denied")
+                    throw MissingRequiredData.noBirthDate(description: "Error: \(missingData)information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .firstName:
+                    guard let testValue = pass.firstName else {
+                        let missingData = data.rawValue
+                        print("Access Denied")
+                        throw MissingRequiredData.noFirstName(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .lastName:
+                guard let testValue = pass.lastName else {
+                    let missingData = data.rawValue
+                    print("Access Denied")
+                    throw MissingRequiredData.noLastName(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .streetAddress:
+                guard let testValue = pass.streetAddress else {
+                    let missingData = data.rawValue
+                    print("Access Denied")
+                    throw MissingRequiredData.noStreetAddress(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .city:
+                guard let testValue = pass.city else {
+                    let missingData = data.rawValue
+                    print("Access Denied")
+                    throw MissingRequiredData.noCity(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .state:
+                guard let testValue = pass.state else {
+                    let missingData = data.rawValue
+                    print("Access Denied")
+                    throw MissingRequiredData.noState(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .zipCode:
+                guard let testValue = pass.zipCode else {
+                    let missingData = data.rawValue
+                    print("Access Denied")
+                    throw MissingRequiredData.noZipCode(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
+                }
+            case .none: break
+            }
+        }
+        
+    }
+    
 
 
 

@@ -14,10 +14,22 @@ enum PersonOfType {
     case rideServices
     case maintenanceWorker
     case manager
+    
+    
 }
 
 extension PersonOfType {
-    
+    var passType: String {
+        switch self {
+        case .classicGuest:  return   "Classic Guest Pass"
+        case .vipGuest: return "VIP Guest Pass"
+        case .freeChildGuest: return "Free Child Guest Pass"
+        case .foodServices: return "Food Services Employee Pass"
+        case .rideServices: return "Ride Services Employee Pass"
+        case .maintenanceWorker: return "Maintenance Employee Pass"
+        case .manager: return "Manager Employee Pass"
+        }
+    }
     var canAccess: [ Area ] {
         switch self {
         case .classicGuest, .freeChildGuest, .vipGuest:
@@ -92,13 +104,13 @@ enum SwipeType {
     case discounts
 }
 
-enum RequiredData {
-    case none
-    case birthdate
-    case firstName
-    case lastName
-    case streetAddress
-    case city
-    case state
-    case zipCode
+enum RequiredData: String {
+    case none = "None"
+    case birthdate = "Birthdate"
+    case firstName = "First Name"
+    case lastName = "Last Name"
+    case streetAddress = "Street Address"
+    case city = "City"
+    case state = "State"
+    case zipCode = "Zip Code"
 }
