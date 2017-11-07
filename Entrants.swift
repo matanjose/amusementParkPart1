@@ -18,7 +18,7 @@ class Entrant {
     var zipCode: String?
     
     init() {}
- 
+    
     init(firstName: String?, lastName: String?, birthdate: String?, streetAddress: String?, city: String?, state: String?, zipCode: String?) {
         self.firstName = firstName
         self.lastName = lastName
@@ -31,6 +31,7 @@ class Entrant {
     
     
     var entrantType: PersonOfType {
+        
         get { return .classicGuest}
         set {}
     }
@@ -38,11 +39,13 @@ class Entrant {
 
 
 class VIPGuest: Entrant {
+   
     override var entrantType: PersonOfType { get {
         return .vipGuest
         }
         set {}
     }
+ 
 }
 
 class FreeChildGuest: Entrant {
