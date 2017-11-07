@@ -248,16 +248,21 @@ extension Location {
     
     
     func reswipeTooSoon(pass: Pass?)  throws {
+       
         timer.invalidate()
+        print("seconds: \(seconds)")
         timeLeftUntilNextSwipe = seconds
         let tooSoon = timeLeftUntilNextSwipe > 0
+        print("too soon: \(tooSoon)")
         let samePerson = pass == previousPassSwiped
+        print("ID: \(pass?.hashID)")
+        print("Previous ID: \(previousPassSwiped?.hashID)")
         
         
         switch (samePerson, tooSoon) {
         case (true, true):
             runTimer() //we don't reset the timer, otherwise the person would have to wait after every reswipe, rather than just from the initial swipe
-            throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass?.hashId)) was used at this location. Please wait and swipe again.")
+            throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass?.hashID)) was used at this location. Please wait and swipe again.")
         case (true, false), (false, true), (false, false):
             seconds = initialSeconds
             previousPassSwiped = pass

@@ -18,6 +18,7 @@ struct Pass {
     let state: String?
     let zipCode: String?
     let entrantType: PersonOfType
+    let hashID = 1
     
     //calculated information
     var birthdate: Date? {
@@ -29,20 +30,6 @@ struct Pass {
             let date = dateFormatter.date(from: birthdayString!)
             return date
         }
-    }
-    var hashId: String {
-        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let allowedCharsCount = UInt32(allowedChars.count)
-        var randomString = ""
-        
-        for _ in 0..<10 {
-            let randomNum = Int(arc4random_uniform(allowedCharsCount))
-            let randomIndex = allowedChars.index(allowedChars.startIndex, offsetBy: randomNum)
-            let newCharacter = allowedChars[randomIndex]
-            randomString += String(newCharacter)
-        }
-        
-        return randomString
     }
 }
 
@@ -60,7 +47,7 @@ extension Pass: Equatable {
             lhs.state == rhs.state &&
             lhs.streetAddress == rhs.streetAddress &&
             lhs.zipCode == rhs.zipCode &&
-            lhs.hashId == rhs.hashId
+            lhs.hashID == rhs.hashID
         
     }
 }
@@ -116,7 +103,7 @@ func checkIfStillAValid(pass: Pass) throws -> Bool {
             let fiveYearsAgoToday = userCalendar.date(from: fiveYearsAgoTodayDateComponents)
             
             guard let bdate = pass.birthdate else {
-                throw MissingRequiredData.noBirthDate(description: "Error: This pass (ID: \(pass.hashId) is a \(passType) and requires birthdate information in order to be swiped. This data is either missing or invalid. Please provide the correct data")
+                throw MissingRequiredData.noBirthDate(description: "Error: This pass (ID: \(pass.hashID) is a \(passType) and requires birthdate information in order to be swiped. This data is either missing or invalid. Please provide the correct data")
             }
             
             let dateComparison = userCalendar.compare(bdate, to: fiveYearsAgoToday!, toGranularity: .day)

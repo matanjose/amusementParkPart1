@@ -27,11 +27,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+
+    
+    @IBAction func SWIPE(_ sender: Any) {
+        northGate.swipe(pass: classicGuestWBirthdatePass)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        /*
         for exampleLocation in locationsCollection {
             for passToSwipe in testPasses {
                 print(passToSwipe.entrantType)
@@ -40,8 +45,9 @@ class ViewController: UIViewController {
                 print()
                 print("-------------")
                 print()
+ 
             }
-        }
+        } */
         
     }
     
