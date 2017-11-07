@@ -33,15 +33,13 @@ struct Pass {
     
 }
 
-func checkIfBirthday(of: Pass) {
+func checkIfBirthday(of: Pass)  {
         if of.birthdate != nil {
             let todayDateComponents = userCalendar.dateComponents([.month, .day], from: currentDate)
             let todayJustMonthAndDay = userCalendar.date(from: todayDateComponents)
             let birthdayDateComponents = userCalendar.dateComponents([.month, .day], from: of.birthdate!)
             let birthdateJustMonthAndDay = userCalendar.date(from: birthdayDateComponents)
-            
             let birthdayComparison = userCalendar.compare(birthdateJustMonthAndDay!, to: todayJustMonthAndDay!, toGranularity: .day)
-            
             switch (birthdayComparison, of.firstName) {
             case (.orderedSame, .some):
                     print("Happy Birthday, \(of.firstName!) we look forward to helping make it one of the best!")
@@ -79,11 +77,13 @@ func checkIfStillAValid(pass: Pass) throws -> Bool {
                return true
             case .orderedAscending:
                 return false
-                
-                
-            
         }
     }
 }
+
+
+
+
+
 
 

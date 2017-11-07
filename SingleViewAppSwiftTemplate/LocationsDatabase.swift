@@ -16,7 +16,15 @@ let office = EmployeeArea(name: "Office", location: .office)
 let rideControl = EmployeeArea(name: "RideServices", location: .rideControl)
 let maintenance = EmployeeArea(name: "Maintenance", location: .maintenance)
 
-let locationsCollection: [Location] = [northGate, rollerCoaster, mainStore, kitchen, office, rideControl, maintenance]
+let locationsCollection: [Location] = [
+ //   northGate,
+ //   rollerCoaster,
+    mainStore,
+    kitchen,
+    office,
+    rideControl,
+    maintenance
+]
 
 
 
