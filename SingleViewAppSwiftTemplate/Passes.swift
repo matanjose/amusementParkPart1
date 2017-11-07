@@ -49,7 +49,7 @@ func checkIfBirthday(of: Pass)  {
                 break
             }
         } else {
-            print("We don't have your birthday information on file. If you'd like a personalized greeting when you enter our park, please update your information with customer service")
+            print("We don't have your birthday information on file. If you'd like a personalized greeting when you enter our park on your birthday, please update your information with customer service.")
         }
     }
 

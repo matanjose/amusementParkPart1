@@ -41,7 +41,7 @@ let managerNoStreetAddressPass = generatePass(from: managerNoStreetAddress)
 
 let testPasses: [Pass] = [
   //  classicGuestPlainPass,
- //   classicGuestWBirthdatePass,
+ //   classicGuestWBirthdatePass, //shows birthday message
  //   freeChildGuestValidPass, //should have access to amusement area, no errors
  //   freeChildGuestExpiredPass, //should get notice that pass is expired, no errors
   //  freeChildGuestNoBirthdayPass, //should throw invalid data error
