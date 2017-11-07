@@ -38,7 +38,7 @@ class EntryPoint: Location {
         set {}
     }
     override func swipe(pass: Pass) {
-        let passIsValid = checkIfStillAValid(pass: pass)
+        do { let passIsValid = try checkIfStillAValid(pass: pass)
         let accessType = self.locationType
         let authorization = pass.entrantType.canAccess.contains(accessType!)
         switch (authorization, passIsValid) {
@@ -50,6 +50,11 @@ class EntryPoint: Location {
         case(false, false), (false, true):
             print("Unfortunately you do not have access, please see customer service")
         
+        }
+        } catch MissingRequiredData.noBirthDate(let description) {
+            print(description)
+        } catch {
+            
         }
     }
 }
@@ -65,7 +70,8 @@ class Ride: Location {
         set {}
     }
     override func swipe(pass: Pass) {
-        let passIsValid = checkIfStillAValid(pass: pass)
+       
+        do { let passIsValid = try checkIfStillAValid(pass: pass)
         let priviledges = pass.entrantType.hasRidePrivilegesTo
         switch passIsValid {
         case true:
@@ -79,6 +85,11 @@ class Ride: Location {
             }
         case false:
             print("\(expiredPassMessage) We look forward to seeing you soon at \(self.name)")
+        }
+        } catch MissingRequiredData.noBirthDate(let description) {
+            print(description)
+        } catch {
+            
         }
     }
 }
@@ -95,7 +106,8 @@ class Shopping: Location {
     }
     
     override func swipe(pass: Pass) {
-        let passIsValid = checkIfStillAValid(pass: pass)
+        
+        do {let passIsValid = try checkIfStillAValid(pass: pass)
         switch passIsValid {
         case true:
             let discounts = pass.entrantType.receivesDiscountOn
@@ -116,6 +128,11 @@ class Shopping: Location {
         case false:
             print("\(expiredPassMessage)")
         }
+        } catch MissingRequiredData.noBirthDate(let description) {
+            print(description)
+        } catch {
+            
+        }
     }
 }
 
@@ -126,7 +143,9 @@ class EmployeeArea: Location {
     }
     
     override func swipe(pass: Pass) {
-        let passIsValid = checkIfStillAValid(pass: pass)
+        
+        do {let passIsValid = try checkIfStillAValid(pass: pass)
+        
         let accessType = self.locationType
         let authorization = pass.entrantType.canAccess.contains(accessType!)
         switch (authorization, passIsValid) {
@@ -134,6 +153,11 @@ class EmployeeArea: Location {
             print("Access Granted")
         case(true, false),(false, false), (false, true):
             print("Access Denied")
+        }
+        } catch MissingRequiredData.noBirthDate(let description) {
+            print(description)
+        } catch {
+            
         }
     }
 }

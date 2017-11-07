@@ -55,7 +55,7 @@ func checkIfBirthday(of: Pass) {
         }
     }
 
-func checkIfStillAValid(pass: Pass) -> Bool {
+func checkIfStillAValid(pass: Pass) throws -> Bool {
     switch pass.entrantType {
     case .classicGuest, .foodServices, .maintenanceWorker, .manager, .rideServices, .vipGuest:
         return true
@@ -69,7 +69,11 @@ func checkIfStillAValid(pass: Pass) -> Bool {
             fiveYearsAgoTodayDateComponents.year = fiveYearsAgo
             let fiveYearsAgoToday = userCalendar.date(from: fiveYearsAgoTodayDateComponents)
             
-            let dateComparison = userCalendar.compare(pass.birthdate!, to: fiveYearsAgoToday!, toGranularity: .day)
+            guard let bdate = pass.birthdate else {
+                throw MissingRequiredData.noBirthDate(description: "Required birthdate information is missing or corrupt")
+            }
+            
+            let dateComparison = userCalendar.compare(bdate, to: fiveYearsAgoToday!, toGranularity: .day)
             switch dateComparison {
             case .orderedSame, .orderedDescending:
                return true

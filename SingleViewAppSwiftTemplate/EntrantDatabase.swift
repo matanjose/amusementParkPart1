@@ -13,7 +13,7 @@ let classicGuestWBirthdate = Entrant(firstName: nil, lastName: nil, birthdate: "
 let classicGuestPlain = Entrant()
 let freeChildGuestExpired = FreeChildGuest(firstName: nil, lastName: nil, birthdate: "11/1/2000", streetAddress: nil, city: nil, state: nil, zipCode: nil)
 let freeChildGuestNoBirthday = FreeChildGuest(firstName: nil, lastName: nil, birthdate: nil, streetAddress: nil, city: nil, state: nil, zipCode: nil)
-let freeChildGuestValid = FreeChildGuest(firstName: nil, lastName: nil, birthdate: "11/1/2015''", streetAddress: nil, city: nil, state: nil, zipCode: nil)
+let freeChildGuestValid = FreeChildGuest(firstName: nil, lastName: nil, birthdate: "11/1/2015", streetAddress: nil, city: nil, state: nil, zipCode: nil)
 let VIPGuestPlain = VIPGuest()
 
 //Employees
@@ -35,16 +35,16 @@ let ridePlainPass = generatePass(from: ridePlain)
 let maintenancePlainPass = generatePass(from: maintenancePlain)
 
 let testPasses: [Pass] = [
-    classicGuestPlainPass,
-    classicGuestWBirthdatePass,
-    freeChildGuestValidPass,
-    freeChildGuestExpiredPass,
-    freeChildGuestNoBirthdayPass,
-    VIPGuestPlainPass,
-    managerPlainPass,
-    foodPlainPass,
-    ridePlainPass,
-    maintenancePlainPass
+  //  classicGuestPlainPass,
+ //   classicGuestWBirthdatePass,
+    freeChildGuestValidPass, //should have access to amusement area, no errors
+    freeChildGuestExpiredPass, //should get notice that pass is expired, no errors
+    freeChildGuestNoBirthdayPass, //should throw invalid data error
+ //   VIPGuestPlainPass,
+ //   managerPlainPass,
+ //   foodPlainPass,
+ //   ridePlainPass,
+ //   maintenancePlainPass
 ]
 
 
