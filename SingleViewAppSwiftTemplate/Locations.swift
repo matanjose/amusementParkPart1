@@ -36,7 +36,9 @@ class EntryPoint: Location {
         set {}
     }
     override func swipe(pass: Pass) {
-        do { let passIsValid = try checkIfStillAValid(pass: pass)
+        do {
+            try reswipeTooSoon(pass: pass)
+            let passIsValid = try checkIfStillAValid(pass: pass)
             try requiredDataFor(pass: pass)
             let accessType = self.locationType
         let authorization = pass.entrantType.canAccess.contains(accessType!) //not actually an optional, will always have a value
@@ -50,6 +52,8 @@ class EntryPoint: Location {
             print("Unfortunately you do not have access, please see customer service")
         
         } 
+        } catch SwipeError.swipeTooSoon(let description) {
+            print(description)
         } catch MissingRequiredData.noFirstName(let description) {
             print(description)
         } catch MissingRequiredData.noLastName(let description) {
@@ -85,7 +89,9 @@ class Ride: Location {
     }
     override func swipe(pass: Pass) {
        
-        do { let passIsValid = try checkIfStillAValid(pass: pass)
+        do {
+            try reswipeTooSoon(pass: pass)
+            let passIsValid = try checkIfStillAValid(pass: pass)
             try requiredDataFor(pass: pass)
         let priviledges = pass.entrantType.hasRidePrivilegesTo
         switch passIsValid {
@@ -101,6 +107,8 @@ class Ride: Location {
         case false:
             print("\(expiredPassMessage) We look forward to seeing you soon at \(self.name)")
         }
+        } catch SwipeError.swipeTooSoon(let description) {
+            print(description)
         } catch MissingRequiredData.noFirstName(let description) {
             print(description)
         } catch MissingRequiredData.noLastName(let description) {
@@ -136,7 +144,9 @@ class Shopping: Location {
     
     override func swipe(pass: Pass) {
         
-        do {let passIsValid = try checkIfStillAValid(pass: pass)
+        do {
+            try reswipeTooSoon(pass: pass)
+            let passIsValid = try checkIfStillAValid(pass: pass)
             try requiredDataFor(pass: pass)
         switch passIsValid {
         case true:
@@ -158,7 +168,9 @@ class Shopping: Location {
         case false:
             print("\(expiredPassMessage)")
         }
-        } catch MissingRequiredData.noFirstName(let description) {
+        } catch SwipeError.swipeTooSoon(let description) {
+            print(description)
+        }catch MissingRequiredData.noFirstName(let description) {
             print(description)
         } catch MissingRequiredData.noLastName(let description) {
             print(description)
@@ -188,7 +200,9 @@ class EmployeeArea: Location {
     
     override func swipe(pass: Pass) {
         
-        do {let passIsValid = try checkIfStillAValid(pass: pass)
+        do {
+            try reswipeTooSoon(pass: pass)
+            let passIsValid = try checkIfStillAValid(pass: pass)
             try requiredDataFor(pass: pass)
         
         let accessType = self.locationType
@@ -199,7 +213,9 @@ class EmployeeArea: Location {
         case(true, false),(false, false), (false, true):
             print("Access Denied")
         }
-        } catch MissingRequiredData.noFirstName(let description) {
+        } catch SwipeError.swipeTooSoon(let description) {
+            print(description)
+        }catch MissingRequiredData.noFirstName(let description) {
             print(description)
         } catch MissingRequiredData.noLastName(let description) {
             print(description)
@@ -231,7 +247,7 @@ extension Location {
     }
     
     
-    func reswipeTooSoon(pass: Pass?) -> Bool {
+    func reswipeTooSoon(pass: Pass?)  throws {
         timer.invalidate()
         timeLeftUntilNextSwipe = seconds
         let tooSoon = timeLeftUntilNextSwipe > 0
@@ -241,12 +257,11 @@ extension Location {
         switch (samePerson, tooSoon) {
         case (true, true):
             runTimer() //we don't reset the timer, otherwise the person would have to wait after every reswipe, rather than just from the initial swipe
-            return true
+            throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass?.hashId)) was used at this location. Please wait and swipe again.")
         case (true, false), (false, true), (false, false):
             seconds = initialSeconds
             previousPassSwiped = pass
             runTimer()
-            return false
         }
     }
 }
