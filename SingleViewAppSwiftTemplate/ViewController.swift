@@ -8,6 +8,7 @@
 /* still need to fix:
  if a pass creates an error, should default to denying access to employee only areas.
  if a pass is not an employee pass, it should just automatically go to "deny entry"
+ locations line 43: "let authorization = pass.entrantType.canAccess.contains(accessType!)" get rid of exclamation point
  
  */
 import UIKit

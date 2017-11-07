@@ -30,7 +30,7 @@ class Entrant {
     }
     
     
-    var entrantType: PersonOfType {
+    var entrantType: PersonOfType? {
         
         get { return .classicGuest}
         set {}
@@ -40,7 +40,7 @@ class Entrant {
 
 class VIPGuest: Entrant {
    
-    override var entrantType: PersonOfType { get {
+    override var entrantType: PersonOfType? { get {
         return .vipGuest
         }
         set {}
@@ -50,7 +50,7 @@ class VIPGuest: Entrant {
 
 class FreeChildGuest: Entrant {
   
-    override var entrantType: PersonOfType { get {
+    override var entrantType: PersonOfType? { get {
         return .freeChildGuest
         }
         set {}
@@ -58,8 +58,8 @@ class FreeChildGuest: Entrant {
 }
 
 class Employee: Entrant {
-    var employeeType: PersonOfType
-    init(firstName: String?, lastName: String?, birthday: String?, streetAddress: String?, city: String?, state: String?, zipCode: String?, employeeType: PersonOfType) {
+    var employeeType: PersonOfType?
+    init(firstName: String?, lastName: String?, birthday: String?, streetAddress: String?, city: String?, state: String?, zipCode: String?, employeeType: PersonOfType?) {
         self.employeeType = employeeType
         super.init()
         self.firstName = firstName
@@ -69,7 +69,7 @@ class Employee: Entrant {
         self.state = state
         self.zipCode = zipCode
     }
-    override var entrantType: PersonOfType { get {
+    override var entrantType: PersonOfType? { get {
         return employeeType
         }
         set {}

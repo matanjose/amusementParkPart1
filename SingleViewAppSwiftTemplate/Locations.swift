@@ -40,7 +40,7 @@ class EntryPoint: Location {
     override func swipe(pass: Pass) {
         do { let passIsValid = try checkIfStillAValid(pass: pass)
             let accessType = self.locationType
-        let authorization = pass.entrantType.canAccess.contains(accessType)
+        let authorization = pass.entrantType.canAccess.contains(accessType!)
         switch (authorization, passIsValid) {
         case (true, true):
             print("Welcome! Enjoy the park.")

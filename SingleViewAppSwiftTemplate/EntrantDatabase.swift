@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 //Guests
 let classicGuestWBirthdate = Entrant(firstName: nil, lastName: nil, birthdate: "11/1/2000", streetAddress: nil, city: nil, state: nil, zipCode: nil)
 let classicGuestPlain = Entrant()
@@ -21,6 +22,7 @@ let managerPlain = Employee(firstName: nil, lastName: "Joe", birthday: nil, stre
 let foodPlain = Employee(firstName: "FoodServices", lastName: "Bob", birthday: nil, streetAddress: "StreetB", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .foodServices)
 let ridePlain = Employee(firstName: "RideServices", lastName: "Nick", birthday: nil, streetAddress:  "StreetC", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .rideServices)
 let maintenancePlain = Employee(firstName: "Maintenance", lastName: "Jill", birthday: nil, streetAddress: "StreetD", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .maintenanceWorker)
+let employeeNoType = Employee(firstName: "no type", lastName: "Mike", birthday: nil, streetAddress: nil, city: nil, state: nil, zipCode: nil, employeeType: nil)
 
 
 let classicGuestPlainPass = generatePass(from: classicGuestPlain)
