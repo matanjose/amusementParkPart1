@@ -9,7 +9,8 @@
  
  need to add useful commenting
  need to add 5 second countdown timer
- need to add useful comments
+ make use of enum raw data (like with discounts)
+
  
  
  */
