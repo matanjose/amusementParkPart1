@@ -33,6 +33,21 @@ struct Pass {
     
 }
 
+func generatePass(from entrant: Entrant)  -> Pass {
+    let firstName = entrant.firstName
+    let lastName = entrant.lastName
+    let birthdayString = entrant.birthdate
+    let streetAddress = entrant.streetAddress
+    let city = entrant.city
+    let state = entrant.state
+    let zipcode = entrant.zipCode
+    let entrantType = entrant.entrantType
+    
+    
+    
+    return Pass(firstName: firstName, lastName: lastName, birthdayString: birthdayString, streetAddress: streetAddress, city: city, state: state, zipCode: zipcode, entrantType: entrantType)
+}
+
 func checkIfBirthday(of: Pass)  {
         if of.birthdate != nil {
             let todayDateComponents = userCalendar.dateComponents([.month, .day], from: currentDate)
@@ -91,43 +106,43 @@ func requiredDataFor(pass: Pass) throws {
         for data in requiredData {
             switch data {
             case .birthdate:
-                guard let testValue = pass.birthdate else {
+                guard pass.birthdate != nil else {
                     let missingData = data.rawValue
                     print("Access Denied")
                     throw MissingRequiredData.noBirthDate(description: "Error: \(missingData)information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .firstName:
-                    guard let testValue = pass.firstName else {
+                    guard pass.firstName != nil else {
                         let missingData = data.rawValue
                         print("Access Denied")
                         throw MissingRequiredData.noFirstName(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .lastName:
-                guard let testValue = pass.lastName else {
+                guard pass.lastName != nil else {
                     let missingData = data.rawValue
                     print("Access Denied")
                     throw MissingRequiredData.noLastName(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .streetAddress:
-                guard let testValue = pass.streetAddress else {
+                guard pass.streetAddress != nil else {
                     let missingData = data.rawValue
                     print("Access Denied")
                     throw MissingRequiredData.noStreetAddress(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .city:
-                guard let testValue = pass.city else {
+                guard pass.city != nil else {
                     let missingData = data.rawValue
                     print("Access Denied")
                     throw MissingRequiredData.noCity(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .state:
-                guard let testValue = pass.state else {
+                guard pass.state != nil else {
                     let missingData = data.rawValue
                     print("Access Denied")
                     throw MissingRequiredData.noState(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .zipCode:
-                guard let testValue = pass.zipCode else {
+                guard pass.zipCode != nil else {
                     let missingData = data.rawValue
                     print("Access Denied")
                     throw MissingRequiredData.noZipCode(description: "Error: \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")

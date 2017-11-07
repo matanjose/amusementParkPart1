@@ -21,7 +21,6 @@
 		B2581EF11FB0D1BA0037FCA6 /* Passes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2581EF01FB0D1BA0037FCA6 /* Passes.swift */; };
 		B29334F21FA8F26800F7F76D /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29334F11FA8F26800F7F76D /* Locations.swift */; };
 		B29334F41FA8FDCE00F7F76D /* LocationsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */; };
-		B2AC0BCA1FA9122A0005C43C /* sparecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC0BC91FA9122A0005C43C /* sparecode.swift */; };
 		B2AC0C081FAA95740005C43C /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC0C071FAA95740005C43C /* SharedData.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +62,6 @@
 		B2581EF01FB0D1BA0037FCA6 /* Passes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passes.swift; sourceTree = "<group>"; };
 		B29334F11FA8F26800F7F76D /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDatabase.swift; sourceTree = "<group>"; };
-		B2AC0BC91FA9122A0005C43C /* sparecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sparecode.swift; sourceTree = "<group>"; };
 		B2AC0C071FAA95740005C43C /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,7 +119,6 @@
 				824A111D1F672CE10034EC8F /* Entrants.swift */,
 				B2581EF01FB0D1BA0037FCA6 /* Passes.swift */,
 				B29334F11FA8F26800F7F76D /* Locations.swift */,
-				B2AC0BC91FA9122A0005C43C /* sparecode.swift */,
 				B2AC0C071FAA95740005C43C /* SharedData.swift */,
 				B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */,
 				821BB99E1F547DE70057B602 /* Errors.swift */,
@@ -295,7 +292,6 @@
 				B29334F41FA8FDCE00F7F76D /* LocationsDatabase.swift in Sources */,
 				B29334F21FA8F26800F7F76D /* Locations.swift in Sources */,
 				B2581EF11FB0D1BA0037FCA6 /* Passes.swift in Sources */,
-				B2AC0BCA1FA9122A0005C43C /* sparecode.swift in Sources */,
 				824A111E1F672CE10034EC8F /* Entrants.swift in Sources */,
 				3A8AADC91DF9B85E00A2B931 /* AppDelegate.swift in Sources */,
 				B2AC0C081FAA95740005C43C /* SharedData.swift in Sources */,
