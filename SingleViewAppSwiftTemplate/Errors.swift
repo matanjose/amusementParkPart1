@@ -17,5 +17,7 @@ enum MissingRequiredData: Error {
     case noCity(description: String)
     case noState(description: String)
     case noZipCode(description: String)
-    
+}
+enum SwipeError: Error {
+    case swipeTooSoon(description: String)
 }

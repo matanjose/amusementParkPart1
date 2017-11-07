@@ -21,8 +21,6 @@ class Location {
     func swipe(pass: Pass) {
        
     }
-    
-    
    
 }
 
@@ -223,3 +221,32 @@ class EmployeeArea: Location {
     }
 }
 
+extension Location {
+    func runTimer() { //starts the timer running, does not reset value in seconds
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(Location.updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        seconds -= 1     //This will decrement(count down)the seconds.
+        
+    }
+    
+    
+    func reswipeTooSoon(pass: Pass?) -> Bool {
+        timer.invalidate()
+        timeLeftUntilNextSwipe = seconds
+        let tooSoon = timeLeftUntilNextSwipe > 0
+        let samePerson = pass == previousPassSwiped
+        
+        
+        switch (samePerson, tooSoon) {
+        case (true, true):
+            runTimer() //we don't reset the timer, otherwise the person would have to wait after every reswipe, rather than just from the initial swipe
+            return true
+        case (true, false), (false, true), (false, false):
+            seconds = initialSeconds
+            previousPassSwiped = pass
+            runTimer()
+            return false
+        }
+    }
+}

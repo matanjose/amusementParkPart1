@@ -30,7 +30,39 @@ struct Pass {
             return date
         }
     }
+    var hashId: String {
+        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let allowedCharsCount = UInt32(allowedChars.count)
+        var randomString = ""
+        
+        for _ in 0..<25 {
+            let randomNum = Int(arc4random_uniform(allowedCharsCount))
+            let randomIndex = allowedChars.index(allowedChars.startIndex, offsetBy: randomNum)
+            let newCharacter = allowedChars[randomIndex]
+            randomString += String(newCharacter)
+        }
+        
+        return randomString
+    }
+}
+
+extension Pass: Equatable {
     
+    
+    static func == (lhs: Pass, rhs: Pass) -> Bool {
+        return
+            lhs.birthdate == rhs.birthdate &&
+            lhs.birthdayString == rhs.birthdayString &&
+            lhs.city == rhs.city &&
+            lhs.entrantType == rhs.entrantType &&
+            lhs.firstName == rhs.firstName &&
+            lhs.lastName == rhs.lastName &&
+            lhs.state == rhs.state &&
+            lhs.streetAddress == rhs.streetAddress &&
+            lhs.zipCode == rhs.zipCode &&
+            lhs.hashId == rhs.hashId
+        
+    }
 }
 
 func generatePass(from entrant: Entrant)  -> Pass {
@@ -101,8 +133,6 @@ func requiredDataFor(pass: Pass) throws {
     let requiredData: [ RequiredData] = pass.entrantType.dataRequiredForProfile
     let passType = pass.entrantType.passType
     if requiredData == [.none] {}
-        
-        
         for data in requiredData {
             switch data {
             case .birthdate:
@@ -150,10 +180,12 @@ func requiredDataFor(pass: Pass) throws {
             case .none: break
             }
         }
-        
     }
-    
 
+
+func lastSwipeTooSoon(pass: Pass) {
+    
+}
 
 
 
