@@ -64,21 +64,7 @@ class EntryPoint: Location {
         } 
         } catch SwipeError.swipeTooSoon(let description) {
             print(description)
-        } catch MissingRequiredData.noFirstName(let description) {
-            print(description)
-        } catch MissingRequiredData.noLastName(let description) {
-            print(description)
-        } catch MissingRequiredData.noBirthDate(let description) {
-            print(description)
-        } catch MissingRequiredData.noAccessType(let description) {
-            print(description)
-        } catch MissingRequiredData.noStreetAddress(let description) {
-            print(description)
-        } catch MissingRequiredData.noCity(let description) {
-            print(description)
-        } catch MissingRequiredData.noState(let description) {
-            print(description)
-        } catch MissingRequiredData.noZipCode(let description) {
+        } catch SwipeError.missingRequiredData(let description) {
             print(description)
         } catch {
             print("There has been an unspecified error")
@@ -119,21 +105,7 @@ class Ride: Location {
         }
         } catch SwipeError.swipeTooSoon(let description) {
             print(description)
-        } catch MissingRequiredData.noFirstName(let description) {
-            print(description)
-        } catch MissingRequiredData.noLastName(let description) {
-            print(description)
-        } catch MissingRequiredData.noBirthDate(let description) {
-            print(description)
-        } catch MissingRequiredData.noAccessType(let description) {
-            print(description)
-        } catch MissingRequiredData.noStreetAddress(let description) {
-            print(description)
-        } catch MissingRequiredData.noCity(let description) {
-            print(description)
-        } catch MissingRequiredData.noState(let description) {
-            print(description)
-        } catch MissingRequiredData.noZipCode(let description) {
+        } catch SwipeError.missingRequiredData(let description) {
             print(description)
         } catch {
             print("There has been an unspecified error")
@@ -180,23 +152,9 @@ class Shopping: Location {
         }
         } catch SwipeError.swipeTooSoon(let description) {
             print(description)
-        }catch MissingRequiredData.noFirstName(let description) {
+        }catch SwipeError.missingRequiredData(let description) {
             print(description)
-        } catch MissingRequiredData.noLastName(let description) {
-            print(description)
-        } catch MissingRequiredData.noBirthDate(let description) {
-            print(description)
-        } catch MissingRequiredData.noAccessType(let description) {
-            print(description)
-        } catch MissingRequiredData.noStreetAddress(let description) {
-            print(description)
-        } catch MissingRequiredData.noCity(let description) {
-            print(description)
-        } catch MissingRequiredData.noState(let description) {
-            print(description)
-        } catch MissingRequiredData.noZipCode(let description) {
-            print(description)
-        } catch {
+        }  catch {
             print("There has been an unspecified error")
         }
     }
@@ -225,21 +183,7 @@ class EmployeeArea: Location {
         }
         } catch SwipeError.swipeTooSoon(let description) {
             print(description)
-        }catch MissingRequiredData.noFirstName(let description) {
-            print(description)
-        } catch MissingRequiredData.noLastName(let description) {
-            print(description)
-        } catch MissingRequiredData.noBirthDate(let description) {
-            print(description)
-        } catch MissingRequiredData.noAccessType(let description) {
-            print(description)
-        } catch MissingRequiredData.noStreetAddress(let description) {
-            print(description)
-        } catch MissingRequiredData.noCity(let description) {
-            print(description)
-        } catch MissingRequiredData.noState(let description) {
-            print(description)
-        } catch MissingRequiredData.noZipCode(let description) {
+        }catch SwipeError.missingRequiredData(let description) {
             print(description)
         } catch {
             print("There has been an unspecified error")
@@ -251,6 +195,7 @@ extension Location {
   
     
     func reswipeTooSoon(pass: Pass)  throws {
+        let swipeTooSoonMessage: String = "Error When attempting to swipe at \(self.name): Swipe Too Soon — It has been less than 5 seconds since this pass (ID: \(pass.hashID)) was used at this location (\(self.name)). Please wait and swipe again."
         let swipeTime = Date()
         let timeSinceLastSwipe = swipeTime.timeIntervalSince(previousSwipeTime)
         let tooSoon = timeSinceLastSwipe < 5
@@ -260,12 +205,123 @@ extension Location {
         
         switch (samePerson, samePlace, tooSoon) {
         case (true, true, true):
-            throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass.hashID)) was used at this location (\(self.name)). Please wait and swipe again.")
+            throw SwipeError.swipeTooSoon(description: swipeTooSoonMessage)
         default:
             previousSwipeTime = swipeTime //set the current swipe time as the previous swipe for next comparison
             previousPassSwiped = pass //sets the current Pass as the previous pass, for next comparison
             previousSwipeLoc = self //sets the current location as the previous location, for next comparison
             
+        }
+    }
+}
+
+extension Location {
+    func requiredDataFor(pass: Pass) throws {
+        
+        let requiredData: [ RequiredData] = pass.entrantType.dataRequiredForProfile
+        let passType = pass.entrantType.passType
+        var missingData = ""
+        let missingDataMessage: String = "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData)information is required for a \(passType). This data is either missing or invalid. Please provide the correct data"
+        if requiredData == [.none] {}
+        for data in requiredData {
+            switch data {
+            case .birthdate:
+                guard pass.birthdate != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .firstName:
+                guard pass.firstName != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .lastName:
+                guard pass.lastName != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .streetAddress:
+                guard pass.streetAddress != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .city:
+                guard pass.city != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .state:
+                guard pass.state != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .zipCode:
+                guard pass.zipCode != nil else {
+                    missingData = data.rawValue
+                    print("Access Denied")
+                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                }
+            case .none: break
+            }
+        }
+    }
+}
+
+extension Location {
+    func checkIfStillAValid(pass: Pass) throws -> Bool {
+        let passType = pass.entrantType.passType
+        switch pass.entrantType {
+        case .classicGuest, .foodServices, .maintenanceWorker, .manager, .rideServices, .vipGuest:
+            return true
+        case .freeChildGuest :
+            let todayDateComponents = userCalendar.dateComponents([.year, .month, .day], from: currentDate)
+            let fiveYearsAgo = todayDateComponents.year! - 5
+            
+            var fiveYearsAgoTodayDateComponents = DateComponents()
+            fiveYearsAgoTodayDateComponents.day = todayDateComponents.day
+            fiveYearsAgoTodayDateComponents.month = todayDateComponents.month
+            fiveYearsAgoTodayDateComponents.year = fiveYearsAgo
+            let fiveYearsAgoToday = userCalendar.date(from: fiveYearsAgoTodayDateComponents)
+            
+            guard let bdate = pass.birthdate else {
+                throw SwipeError.missingRequiredData(description: "Error: This pass (ID: \(pass.hashID)) is a \(passType) and requires birthdate information in order to be swiped. This data is either missing or invalid. Please provide the correct data")
+            }
+            
+            let dateComparison = userCalendar.compare(bdate, to: fiveYearsAgoToday!, toGranularity: .day)
+            switch dateComparison {
+            case .orderedSame, .orderedDescending:
+                return true
+            case .orderedAscending:
+                return false
+            }
+        }
+    }
+}
+
+extension Location {
+    func checkIfBirthday(of: Pass)  {
+        if of.birthdate != nil {
+            let todayDateComponents = userCalendar.dateComponents([.month, .day], from: currentDate)
+            let todayJustMonthAndDay = userCalendar.date(from: todayDateComponents)
+            let birthdayDateComponents = userCalendar.dateComponents([.month, .day], from: of.birthdate!)
+            let birthdateJustMonthAndDay = userCalendar.date(from: birthdayDateComponents)
+            let birthdayComparison = userCalendar.compare(birthdateJustMonthAndDay!, to: todayJustMonthAndDay!, toGranularity: .day)
+            switch (birthdayComparison, of.firstName) {
+            case (.orderedSame, .some):
+                print("Happy Birthday, \(of.firstName!) we look forward to helping make it one of the best!")
+            case (.orderedSame, .none):
+                print("Happy Birthday! Let us know your name, so that next year we can give you a more personalized message.")
+            default:
+                break
+            }
+        } else {
+            print("We don't have your birthday information on file. If you'd like a personalized greeting when you enter our park on your birthday, please update your information with customer service.")
         }
     }
 }

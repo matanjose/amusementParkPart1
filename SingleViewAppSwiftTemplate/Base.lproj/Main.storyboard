@@ -21,17 +21,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8s-wh-sgt">
-                                <rect key="frame" x="232" y="318" width="46" height="30"/>
+                                <rect key="frame" x="113" y="224" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SWIPE"/>
+                                <state key="normal" title="Swipe: Main Entrance"/>
                                 <connections>
                                     <action selector="SWIPE:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ceo-tb-fJ7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8z-PY-3cL">
-                                <rect key="frame" x="186" y="379" width="139" height="30"/>
+                                <rect key="frame" x="118" y="262" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SWIPE NewLocation"/>
+                                <state key="normal" title="Swipe: Rollercoaster"/>
                                 <connections>
                                     <action selector="SWIPENEWLOC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUd-lZ-8bA"/>
                                 </connections>
