@@ -248,39 +248,24 @@ class EmployeeArea: Location {
 }
 
 extension Location {
-    func runTimer() { //starts the timer running, does not reset value in seconds
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(Location.updateTimer)), userInfo: nil, repeats: true)
-    }
-    @objc func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-        
-    }
+  
     
-    
-    func reswipeTooSoon(pass: Pass?)  throws {
-       
-        timer.invalidate()
-        print(self.name)
-        print("seconds: \(seconds)")
-        timeLeftUntilNextSwipe = seconds
-        let tooSoon = timeLeftUntilNextSwipe > 0
-        print("too soon: \(tooSoon)")
+    func reswipeTooSoon(pass: Pass)  throws {
+        let swipeTime = Date()
+        let timeSinceLastSwipe = swipeTime.timeIntervalSince(previousSwipeTime)
+        let tooSoon = timeSinceLastSwipe < 5
         let samePerson = pass == previousPassSwiped
-        print("ID: \(pass?.hashID)")
-        print("Previous ID: \(previousPassSwiped?.hashID)")
         let samePlace = self == previousSwipeLoc
-        print("same place: \(samePlace)")
         
         
         switch (samePerson, samePlace, tooSoon) {
         case (true, true, true):
-            runTimer() //we don't reset the timer, otherwise the person would have to wait after every reswipe, rather than just from the initial swipe
-            throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass?.hashID)) was used at this location. Please wait and swipe again.")
+            throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass.hashID)) was used at this location (\(self.name)). Please wait and swipe again.")
         default:
-            seconds = initialSeconds //resets the timer
+            previousSwipeTime = swipeTime //set the current swipe time as the previous swipe for next comparison
             previousPassSwiped = pass //sets the current Pass as the previous pass, for next comparison
             previousSwipeLoc = self //sets the current location as the previous location, for next comparison
-            runTimer()
+            
         }
     }
 }

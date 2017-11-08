@@ -20,7 +20,10 @@ struct Pass {
     let entrantType: PersonOfType
     let hashID = 1
     
-    //calculated information
+    
+    
+    
+//calculated information
     var birthdate: Date? {
         dateFormatter.dateStyle = DateFormatter.Style.short
         switch birthdayString {

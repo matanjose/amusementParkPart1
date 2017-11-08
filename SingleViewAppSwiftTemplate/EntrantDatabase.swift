@@ -26,18 +26,18 @@ let employeeNoType = Employee(firstName: nil, lastName: nil, birthday: nil, stre
 let managerNoStreetAddress = Employee(firstName: "No Street Address", lastName: "Willie", birthday: nil, streetAddress: nil, city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .manager)
 
 
-let classicGuestPlainPass = generatePass(from: classicGuestPlain)
-let classicGuestWBirthdatePass = generatePass(from: classicGuestWBirthdate)
-let freeChildGuestValidPass = generatePass(from: freeChildGuestValid)
-let freeChildGuestExpiredPass = generatePass(from: freeChildGuestExpired)
-let freeChildGuestNoBirthdayPass = generatePass(from: freeChildGuestNoBirthday)
-let VIPGuestPlainPass = generatePass(from: VIPGuestPlain)
-let managerPlainPass = generatePass(from: managerPlain)
-let foodPlainPass = generatePass(from: foodPlain)
-let ridePlainPass = generatePass(from: ridePlain)
-let maintenancePlainPass = generatePass(from: maintenancePlain)
- let employeeNoTypePass = generatePass(from: employeeNoType)
-let managerNoStreetAddressPass = generatePass(from: managerNoStreetAddress)
+var classicGuestPlainPass = generatePass(from: classicGuestPlain)
+var classicGuestWBirthdatePass = generatePass(from: classicGuestWBirthdate)
+var freeChildGuestValidPass = generatePass(from: freeChildGuestValid)
+var freeChildGuestExpiredPass = generatePass(from: freeChildGuestExpired)
+var freeChildGuestNoBirthdayPass = generatePass(from: freeChildGuestNoBirthday)
+var VIPGuestPlainPass = generatePass(from: VIPGuestPlain)
+var managerPlainPass = generatePass(from: managerPlain)
+var foodPlainPass = generatePass(from: foodPlain)
+var ridePlainPass = generatePass(from: ridePlain)
+var maintenancePlainPass = generatePass(from: maintenancePlain)
+var employeeNoTypePass = generatePass(from: employeeNoType)
+var managerNoStreetAddressPass = generatePass(from: managerNoStreetAddress)
 
 let testPasses: [Pass] = [
   //  classicGuestPlainPass,
