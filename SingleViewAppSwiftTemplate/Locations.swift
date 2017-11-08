@@ -220,8 +220,6 @@ extension Location {
         
         let requiredData: [ RequiredData] = pass.entrantType.dataRequiredForProfile
         let passType = pass.entrantType.passType
-        
-        let missingDataMessage: String = ""
         if requiredData == [.none] {}
         for data in requiredData {
             

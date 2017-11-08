@@ -21,11 +21,21 @@
     (X) Entrants are prevented from swiping twice within 5 seconds at the same checkpoint
  (X) When access is denied an alert message is given
  (X) Created (and commented out) test cases for each entrant type and at least two of their associated possible actions, according to the business rules matrix
- (•) Created test cases to demonstrate errors
+ (X) Created test cases to demonstrate errors
  */
 import UIKit
 
 class ViewController: UIViewController {
+    
+ /*
+     ---------------------------
+     Swipe too soon error
+     ---------------------------
+     Use the simulator to demonstrate the swipe too soon error. Each button represents a swipe for the pass described
+     at the named location. If any button is clicked twice in a row, in less than 5 seconds, the console will show an error
+     message. Any other clicks should show the appropriate swipe outcome.
+ 
+ */
     
     @IBAction func classicMainGateSwipe(_ sender: Any) {
         print("---------")
