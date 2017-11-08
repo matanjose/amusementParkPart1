@@ -28,6 +28,9 @@ import UIKit
 class ViewController: UIViewController {
     
 
+    @IBAction func SWIPENEWLOC(_ sender: Any) {
+        rollerCoaster.swipe(pass: classicGuestWBirthdatePass)
+    }
     
     @IBAction func SWIPE(_ sender: Any) {
         northGate.swipe(pass: classicGuestWBirthdatePass)

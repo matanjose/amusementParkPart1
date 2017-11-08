@@ -250,6 +250,7 @@ extension Location {
     func reswipeTooSoon(pass: Pass?)  throws {
        
         timer.invalidate()
+        print(self.name)
         print("seconds: \(seconds)")
         timeLeftUntilNextSwipe = seconds
         let tooSoon = timeLeftUntilNextSwipe > 0
