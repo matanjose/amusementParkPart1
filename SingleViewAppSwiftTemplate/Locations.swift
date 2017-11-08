@@ -24,6 +24,16 @@ class Location {
    
 }
 
+extension Location: Equatable {
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        return
+            lhs.name == rhs.name &&
+        lhs.locationType == rhs.locationType &&
+        lhs.swipeType == rhs.swipeType
+        
+    }
+}
+
 class EntryPoint: Location {
     override var locationType: Area? { get {
         return .amusement
@@ -258,15 +268,18 @@ extension Location {
         let samePerson = pass == previousPassSwiped
         print("ID: \(pass?.hashID)")
         print("Previous ID: \(previousPassSwiped?.hashID)")
+        let samePlace = self == previousSwipeLoc
+        print("same place: \(samePlace)")
         
         
-        switch (samePerson, tooSoon) {
-        case (true, true):
+        switch (samePerson, samePlace, tooSoon) {
+        case (true, true, true):
             runTimer() //we don't reset the timer, otherwise the person would have to wait after every reswipe, rather than just from the initial swipe
             throw SwipeError.swipeTooSoon(description: "Error - Swipe Too Soon: It has been less than 5 seconds since this pass (ID: \(pass?.hashID)) was used at this location. Please wait and swipe again.")
-        case (true, false), (false, true), (false, false):
-            seconds = initialSeconds
-            previousPassSwiped = pass
+        default:
+            seconds = initialSeconds //resets the timer
+            previousPassSwiped = pass //sets the current Pass as the previous pass, for next comparison
+            previousSwipeLoc = self //sets the current location as the previous location, for next comparison
             runTimer()
         }
     }

@@ -20,6 +20,7 @@ var timer = Timer() //Creates the timer
 var isTimerRunning = false //makes sure that we only have one timer created
 var previousPassSwiped: Pass? = nil
 var timeLeftUntilNextSwipe: Int = 0
+var previousSwipeLoc: Location? = nil
 
 //Information for invalid passes
 let expiredPassMessage = "Unfortunately your pass is expired. Please see customer service for a new pass."

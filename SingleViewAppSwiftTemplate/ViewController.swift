@@ -18,7 +18,7 @@
 (X) One or more swipe methods are implemented
     (X) Polymorphic methods are being implemented for swipe or related processing, such that the method is able to handle (or to be applied to) multiple entrant or pass types
     (X) Entrants are correctly alerted on their birthdays
-    (•) Entrants are prevented from swiping twice within 5 seconds at the same checkpoint
+    (X) Entrants are prevented from swiping twice within 5 seconds at the same checkpoint
  (•) When access is denied an alert message is given
  (•) Created (and commented out) test cases for each entrant type and at least two of their associated possible actions, according to the business rules matrix
  (•) Created test cases to demonstrate errors

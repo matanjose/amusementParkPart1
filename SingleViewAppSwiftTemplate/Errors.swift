@@ -20,4 +20,5 @@ enum MissingRequiredData: Error {
 }
 enum SwipeError: Error {
     case swipeTooSoon(description: String)
+    case missingRequiredData(description: String)
 }
