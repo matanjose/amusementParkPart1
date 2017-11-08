@@ -27,14 +27,32 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
-    @IBAction func SWIPENEWLOC(_ sender: Any) {
+    @IBAction func classicMainGateSwipe(_ sender: Any) {
+        print("---------")
+        northGate.swipe(pass: classicGuestBasicPass)
+        print("---------")
+        print("")
+    }
+    @IBAction func classicRollercoasterSwipe(_ sender: Any) {
+        print("---------")
         rollerCoaster.swipe(pass: classicGuestBasicPass)
+        print("---------")
+        print("")
+    }
+    @IBAction func managerMainEntranceSwipe(_ sender: Any) {
+        print("---------")
+        northGate.swipe(pass: managerPass)
+        print("---------")
+        print("")
+    }
+    @IBAction func managerRollercoasterSwipe(_ sender: Any) {
+        print("---------")
+        rollerCoaster.swipe(pass: managerPass)
+        print("---------")
+        print("")
     }
     
-    @IBAction func SWIPE(_ sender: Any) {
-        northGate.swipe(pass: classicGuestBasicPass)
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

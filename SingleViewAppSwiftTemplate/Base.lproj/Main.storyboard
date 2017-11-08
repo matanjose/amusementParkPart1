@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,28 +21,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8s-wh-sgt">
-                                <rect key="frame" x="113" y="224" width="148" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Swipe: Main Entrance"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8z-PY-3cL">
+                                <rect key="frame" x="46" y="279" width="283" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Classic: Rollercoaster"/>
                                 <connections>
-                                    <action selector="SWIPE:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ceo-tb-fJ7"/>
+                                    <action selector="classicRollercoasterSwipe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mdz-xs-hCi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8z-PY-3cL">
-                                <rect key="frame" x="118" y="262" width="140" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Swipe: Rollercoaster"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Test For Repeat Swipes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUy-kE-Stn">
+                                <rect key="frame" x="84" y="95" width="207" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYw-d2-d90">
+                                <rect key="frame" x="46" y="339" width="283" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Manager: Main Entrance"/>
                                 <connections>
-                                    <action selector="SWIPENEWLOC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUd-lZ-8bA"/>
+                                    <action selector="managerMainEntranceSwipe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r6s-n8-03R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15K-qJ-Yai">
+                                <rect key="frame" x="46" y="211" width="283" height="30"/>
+                                <color key="backgroundColor" red="0.66204218999999997" green="0.66564119170000002" blue="0.66063493230000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Classic: Main Entrance"/>
+                                <connections>
+                                    <action selector="classicMainGateSwipe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8h-oO-zGA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCy-my-v0z">
+                                <rect key="frame" x="46" y="399" width="283" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uC3-Lr-X0f"/>
+                                </constraints>
+                                <state key="normal" title="Manager: Rollercoaster"/>
+                                <connections>
+                                    <action selector="managerRollercoasterSwipe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2R-h4-f9I"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="K8z-PY-3cL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Yp-YB-b5b"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="15K-qJ-Yai" secondAttribute="trailing" constant="30" id="2fg-ah-Jwz"/>
+                            <constraint firstItem="15K-qJ-Yai" firstAttribute="top" secondItem="QUy-kE-Stn" secondAttribute="bottom" constant="95" id="3Pz-Pf-z4U"/>
+                            <constraint firstItem="K8z-PY-3cL" firstAttribute="top" secondItem="15K-qJ-Yai" secondAttribute="bottom" constant="38" id="4BQ-Wr-S9W"/>
+                            <constraint firstItem="QUy-kE-Stn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5yh-hC-GH7"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="K8z-PY-3cL" secondAttribute="trailing" constant="30" id="AM0-bP-b2Y"/>
+                            <constraint firstItem="vYw-d2-d90" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AhB-wi-WSv"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="wCy-my-v0z" secondAttribute="trailing" constant="30" id="I0s-EI-8eM"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QUy-kE-Stn" secondAttribute="trailing" constant="65" id="L4Y-VE-qZt"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="vYw-d2-d90" secondAttribute="trailing" constant="30" id="MbS-fo-HLt"/>
+                            <constraint firstItem="QUy-kE-Stn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="65" id="Yfx-d4-uRg"/>
+                            <constraint firstItem="K8z-PY-3cL" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="YrC-n1-rx9"/>
+                            <constraint firstItem="15K-qJ-Yai" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Zlx-cx-GPV"/>
+                            <constraint firstItem="wCy-my-v0z" firstAttribute="top" secondItem="vYw-d2-d90" secondAttribute="bottom" constant="30" id="bnN-Yf-sIs"/>
+                            <constraint firstItem="vYw-d2-d90" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="bxc-jY-6Yu"/>
+                            <constraint firstItem="wCy-my-v0z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dXk-6c-QhN"/>
+                            <constraint firstItem="15K-qJ-Yai" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qLU-OE-V8d"/>
+                            <constraint firstItem="wCy-my-v0z" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="rvj-nS-qhg"/>
+                            <constraint firstItem="vYw-d2-d90" firstAttribute="top" secondItem="K8z-PY-3cL" secondAttribute="bottom" constant="30" id="vq2-bu-jfS"/>
+                            <constraint firstItem="QUy-kE-Stn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="zyX-Ki-pji"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
     </scenes>
 </document>
