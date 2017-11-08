@@ -314,7 +314,7 @@ extension Location {
             let birthdayComparison = userCalendar.compare(birthdateJustMonthAndDay!, to: todayJustMonthAndDay!, toGranularity: .day)
             switch (birthdayComparison, of.firstName) {
             case (.orderedSame, .some):
-                print("Happy Birthday, \(of.firstName!) we look forward to helping make it one of the best!")
+                print("Happy Birthday, \(of.firstName!)! We look forward to helping make it one of the best!")
             case (.orderedSame, .none):
                 print("Happy Birthday! Let us know your name, so that next year we can give you a more personalized message.")
             default:

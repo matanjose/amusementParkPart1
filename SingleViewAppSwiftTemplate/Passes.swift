@@ -66,7 +66,7 @@ func generatePass(from entrant: Entrant)  -> Pass {
     let entrantType = entrant.entrantType
     let hashID = uniquePassID
     
-    uniquePassID += 473
+    uniquePassID += 1
     return Pass(firstName: firstName, lastName: lastName, birthdayString: birthdayString, streetAddress: streetAddress, city: city, state: state, zipCode: zipcode, entrantType: entrantType, hashID: hashID)
     
     

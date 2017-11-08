@@ -14,7 +14,7 @@
 		3A8AADD31DF9B85E00A2B931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8AADD11DF9B85E00A2B931 /* LaunchScreen.storyboard */; };
 		3A8AADDE1DF9B85E00A2B931 /* SingleViewAppSwiftTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8AADDD1DF9B85E00A2B931 /* SingleViewAppSwiftTemplateTests.swift */; };
 		3A8AADE91DF9B85E00A2B931 /* SingleViewAppSwiftTemplateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8AADE81DF9B85E00A2B931 /* SingleViewAppSwiftTemplateUITests.swift */; };
-		821BB9991F4F5B630057B602 /*  EntrantTypesAndPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB9981F4F5B630057B602 /*  EntrantTypesAndPermissions.swift */; };
+		821BB9991F4F5B630057B602 /* TypesAndPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB9981F4F5B630057B602 /* TypesAndPermissions.swift */; };
 		821BB99B1F5369C20057B602 /* EntrantDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB99A1F5369C20057B602 /* EntrantDatabase.swift */; };
 		821BB99F1F547DE70057B602 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BB99E1F547DE70057B602 /* Errors.swift */; };
 		824A111E1F672CE10034EC8F /* Entrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A111D1F672CE10034EC8F /* Entrants.swift */; };
@@ -55,7 +55,7 @@
 		3A8AADE41DF9B85E00A2B931 /* SingleViewAppSwiftTemplateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingleViewAppSwiftTemplateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8AADE81DF9B85E00A2B931 /* SingleViewAppSwiftTemplateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewAppSwiftTemplateUITests.swift; sourceTree = "<group>"; };
 		3A8AADEA1DF9B85E00A2B931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		821BB9981F4F5B630057B602 /*  EntrantTypesAndPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " EntrantTypesAndPermissions.swift"; sourceTree = "<group>"; };
+		821BB9981F4F5B630057B602 /* TypesAndPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesAndPermissions.swift; sourceTree = "<group>"; };
 		821BB99A1F5369C20057B602 /* EntrantDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantDatabase.swift; sourceTree = "<group>"; };
 		821BB99E1F547DE70057B602 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		824A111D1F672CE10034EC8F /* Entrants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entrants.swift; path = ../Entrants.swift; sourceTree = "<group>"; };
@@ -115,14 +115,14 @@
 			children = (
 				3A8AADC81DF9B85E00A2B931 /* AppDelegate.swift */,
 				3A8AADCA1DF9B85E00A2B931 /* ViewController.swift */,
-				821BB9981F4F5B630057B602 /*  EntrantTypesAndPermissions.swift */,
-				824A111D1F672CE10034EC8F /* Entrants.swift */,
-				B2581EF01FB0D1BA0037FCA6 /* Passes.swift */,
-				B29334F11FA8F26800F7F76D /* Locations.swift */,
 				B2AC0C071FAA95740005C43C /* SharedData.swift */,
+				821BB9981F4F5B630057B602 /* TypesAndPermissions.swift */,
+				B2581EF01FB0D1BA0037FCA6 /* Passes.swift */,
+				824A111D1F672CE10034EC8F /* Entrants.swift */,
+				821BB99A1F5369C20057B602 /* EntrantDatabase.swift */,
+				B29334F11FA8F26800F7F76D /* Locations.swift */,
 				B29334F31FA8FDCE00F7F76D /* LocationsDatabase.swift */,
 				821BB99E1F547DE70057B602 /* Errors.swift */,
-				821BB99A1F5369C20057B602 /* EntrantDatabase.swift */,
 				3A8AADCC1DF9B85E00A2B931 /* Main.storyboard */,
 				3A8AADCF1DF9B85E00A2B931 /* Assets.xcassets */,
 				3A8AADD11DF9B85E00A2B931 /* LaunchScreen.storyboard */,
@@ -286,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821BB9991F4F5B630057B602 /*  EntrantTypesAndPermissions.swift in Sources */,
+				821BB9991F4F5B630057B602 /* TypesAndPermissions.swift in Sources */,
 				821BB99B1F5369C20057B602 /* EntrantDatabase.swift in Sources */,
 				3A8AADCB1DF9B85E00A2B931 /* ViewController.swift in Sources */,
 				B29334F41FA8FDCE00F7F76D /* LocationsDatabase.swift in Sources */,

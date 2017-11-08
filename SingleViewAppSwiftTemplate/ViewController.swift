@@ -20,7 +20,7 @@
     (X) Entrants are correctly alerted on their birthdays
     (X) Entrants are prevented from swiping twice within 5 seconds at the same checkpoint
  (X) When access is denied an alert message is given
- (•) Created (and commented out) test cases for each entrant type and at least two of their associated possible actions, according to the business rules matrix
+ (X) Created (and commented out) test cases for each entrant type and at least two of their associated possible actions, according to the business rules matrix
  (•) Created test cases to demonstrate errors
  */
 import UIKit
@@ -29,28 +29,44 @@ class ViewController: UIViewController {
     
 
     @IBAction func SWIPENEWLOC(_ sender: Any) {
-        rollerCoaster.swipe(pass: classicGuestWBirthdatePass)
+        rollerCoaster.swipe(pass: classicGuestBasicPass)
     }
     
     @IBAction func SWIPE(_ sender: Any) {
-        northGate.swipe(pass: classicGuestWBirthdatePass)
+        northGate.swipe(pass: classicGuestBasicPass)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        /*
-        for exampleLocation in locationsCollection {
-            for passToSwipe in testPasses {
-                print(passToSwipe.entrantType)
-                print(exampleLocation.name)
+        
+        //Error Free Swipes and Outcomes
+         //Shows each pass (select which to view by going to EntrantDatabase.swift and then uncommenting desired sample pass(es)) and outcome at each tested location (select which to check by going to LocationsDatabase.swift and then uncommenting desired locations to perform swipe)
+        for passToSwipe in errorFreeTestPasses {
+            for exampleLocation  in locationsCollection {
+                print("Swiping pass \(passToSwipe.hashID) of type \(passToSwipe.entrantType) at \(exampleLocation.name)")
+                print("has the following results")
                 exampleLocation.swipe(pass: passToSwipe)
                 print()
                 print("-------------")
                 print()
  
             }
-        } */
+        }
+        
+        //Swipes and Outcomes with Errors
+        //Shows each pass (select which to view by going to EntrantDatabase.swift and then uncommenting desired sample pass(es)) and outcome at each tested location (select which to check by going to LocationsDatabase.swift and then uncommenting desired locations to perform swipe)
+        for passToSwipe in examplePassesWithErrors {
+            for exampleLocation  in locationsCollection {
+                print("Swiping pass \(passToSwipe.hashID) of type \(passToSwipe.entrantType) at \(exampleLocation.name)")
+                print("has the following results")
+                exampleLocation.swipe(pass: passToSwipe)
+                print()
+                print("-------------")
+                print()
+                
+            }
+        }
         
     }
     
