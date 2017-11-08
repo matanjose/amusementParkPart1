@@ -8,50 +8,41 @@
 
 import Foundation
 
+//Sample Passes - No Errors
+        //Guests
+let classicGuestBasic = Entrant()
+let classicGuestBirthdayName = Entrant(firstName: "Bob", lastName: "Smith", birthdate: "11/2/2017", streetAddress: nil, city: nil, state: nil, zipCode: nil)
+let classicGuestBirthdayNoName = Entrant(firstName: nil, lastName: nil, birthdate: "11/2/2016", streetAddress: nil, city: nil, state: nil, zipCode: nil)
 
-//Guests
-let classicGuestWBirthdate = Entrant(firstName: nil, lastName: nil, birthdate: "11/1/2000", streetAddress: nil, city: nil, state: nil, zipCode: nil)
-let classicGuestPlain = Entrant()
-let freeChildGuestExpired = FreeChildGuest(firstName: nil, lastName: nil, birthdate: "11/1/2000", streetAddress: nil, city: nil, state: nil, zipCode: nil)
-let freeChildGuestNoBirthday = FreeChildGuest(firstName: nil, lastName: nil, birthdate: nil, streetAddress: nil, city: nil, state: nil, zipCode: nil)
-let freeChildGuestValid = FreeChildGuest(firstName: nil, lastName: nil, birthdate: "11/1/2015", streetAddress: nil, city: nil, state: nil, zipCode: nil)
-let VIPGuestPlain = VIPGuest()
+let vipGuest = VIPGuest()
 
-//Employees
-let managerPlain = Employee(firstName: "Manager", lastName: "Joe", birthday: nil, streetAddress: "StreetA", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .manager)
-let foodPlain = Employee(firstName: "FoodServices", lastName: "Bob", birthday: nil, streetAddress: "StreetB", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .foodServices)
-let ridePlain = Employee(firstName: "RideServices", lastName: "Nick", birthday: nil, streetAddress:  "StreetC", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .rideServices)
-let maintenancePlain = Employee(firstName: "Maintenance", lastName: "Jill", birthday: nil, streetAddress: "StreetD", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .maintenanceWorker)
-let employeeNoType = Employee(firstName: nil, lastName: nil, birthday: nil, streetAddress: nil, city: nil, state: nil, zipCode: nil, employeeType: .foodServices)
-let managerNoStreetAddress = Employee(firstName: "No Street Address", lastName: "Willie", birthday: nil, streetAddress: nil, city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .manager)
+let freeChildGuestValid = FreeChildGuest(firstName: "Baby", lastName: "Smith", birthdate: "11/2/2015", streetAddress: nil, city: nil, state: nil, zipCode: nil)
 
+        //Employees
+let manager = Employee(firstName: "Harry", lastName: "Potter", birthday: nil, streetAddress: "StreetA", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .manager)
+let food = Employee(firstName: "Luna", lastName: "Lovegood", birthday: nil, streetAddress: "StreetB", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .foodServices)
+let rideServices = Employee(firstName: "Ron", lastName: "Weasley", birthday: nil, streetAddress:  "StreetC", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .rideServices)
+let maintenanceWorker = Employee(firstName: "Dobby", lastName: "Elf", birthday: nil, streetAddress: "StreetD", city: "CapitalCity", state: "ZZ", zipCode: "12345", employeeType: .maintenanceWorker)
 
-var classicGuestPlainPass = generatePass(from: classicGuestPlain)
-var classicGuestWBirthdatePass = generatePass(from: classicGuestWBirthdate)
+var classicGuestBasicPass = generatePass(from: classicGuestBasic)
+var classicGuestBirthdayNamePass = generatePass(from: classicGuestBirthdayName)
+var classicGuestBirthdayNoNamePass = generatePass(from: classicGuestBirthdayNoName)
 var freeChildGuestValidPass = generatePass(from: freeChildGuestValid)
-var freeChildGuestExpiredPass = generatePass(from: freeChildGuestExpired)
-var freeChildGuestNoBirthdayPass = generatePass(from: freeChildGuestNoBirthday)
-var VIPGuestPlainPass = generatePass(from: VIPGuestPlain)
-var managerPlainPass = generatePass(from: managerPlain)
-var foodPlainPass = generatePass(from: foodPlain)
-var ridePlainPass = generatePass(from: ridePlain)
-var maintenancePlainPass = generatePass(from: maintenancePlain)
-var employeeNoTypePass = generatePass(from: employeeNoType)
-var managerNoStreetAddressPass = generatePass(from: managerNoStreetAddress)
+var vipGuestPass = generatePass(from: vipGuest)
+var managerPass = generatePass(from: manager)
+var foodPass = generatePass(from: food)
+var rideServicesPass = generatePass(from: rideServices)
 
-let testPasses: [Pass] = [
-  //  classicGuestPlainPass,
- //   classicGuestWBirthdatePass, //shows birthday message
- //   freeChildGuestValidPass, //should have access to amusement area, no errors
- //   freeChildGuestExpiredPass, //should get notice that pass is expired, no errors
-  //  freeChildGuestNoBirthdayPass, //should throw invalid data error
- //   VIPGuestPlainPass,
-   managerPlainPass,
- //   foodPlainPass,
- //   ridePlainPass,
- //   maintenancePlainPass
- //   employeeNoTypePass //should throw invalid data error
-        managerNoStreetAddressPass
+
+let errorFreeTestPasses: [Pass] = [
+    classicGuestBasicPass,
+    classicGuestBirthdayNamePass,
+    classicGuestBirthdayNoNamePass,
+    freeChildGuestValidPass,
+    vipGuestPass,
+    managerPass,
+    foodPass,
+    rideServicesPass
 ]
 
 

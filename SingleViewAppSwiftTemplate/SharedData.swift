@@ -22,7 +22,8 @@ var previousSwipeLoc: Location? = nil
 //Information for invalid passes
 let expiredPassMessage = "Unfortunately your pass is expired. Please see customer service for a new pass."
 
-
+//Unique Pass ID
+var uniquePassID = 39534958
 
 
 
