@@ -76,19 +76,31 @@ let errorFreeTestPasses: [Pass] = [
 let freeChildGuestNoBirthdate = FreeChildGuest(firstName: "Tom", lastName: "Riddle", birthdate: nil, streetAddress: nil, city: nil, state: nil, zipCode: nil)
 
                 //Employees
-
+let kitchenNoFirstName = Employee(firstName: nil, lastName: "Hagrid", birthday: nil, streetAddress: "Some Street", city: "Some City", state: "ZZ", zipCode: "12345", employeeType: .foodServices)
 let managerNoLastName = Employee(firstName: "Winky", lastName: nil, birthday: nil, streetAddress: "Some Street", city: "Some City", state: "ZZ", zipCode: "12345", employeeType: .manager)
-
+let maintenanceNoStreet = Employee(firstName: "Neville", lastName: "Longbottom", birthday: nil, streetAddress: nil, city: "Some City", state: "ZZ", zipCode: "12345", employeeType: .maintenanceWorker)
 let rideServicesNoCity = Employee(firstName: "Draco", lastName: "Malfoy", birthday: nil, streetAddress: "Some Street", city: nil, state: "ZZ", zipCode: "12345", employeeType: .rideServices)
+let managerNoState = Employee(firstName: "Albus", lastName: "Dumbledore", birthday: nil, streetAddress: "Some Street", city: "Some City", state: nil, zipCode: "12345", employeeType: .manager)
+let managerNoZip = Employee(firstName: "Minerva", lastName: "McGonnegal", birthday: nil, streetAddress: "Some Street", city: "Some City", state: "ZZ", zipCode: nil, employeeType: .manager)
+
+
 
 let freeChildGuestNoBirthdatePass = generatePass(from: freeChildGuestNoBirthdate)
+let kitchenNoFirstNamePass = generatePass(from: kitchenNoFirstName)
 let managerNoLastNamePass = generatePass(from: managerNoLastName)
+let maintenanceNoStreetPass = generatePass(from: maintenanceNoStreet)
 let rideServicesNoCityPass = generatePass(from: rideServicesNoCity)
+let managerNoStatePass = generatePass(from: managerNoState)
+let managerNoZipPass = generatePass(from: managerNoZip)
 
 let examplePassesWithErrors: [ Pass ] = [
-    freeChildGuestNoBirthdatePass, //will throw an error at any location because birthdate is necessary to validate a Free Child Guest Pass
-    managerNoLastNamePass, //will throw an error at any location because name is necessary to validate any Employee Pass
-    rideServicesNoCityPass //will throw an error at any location because Street Address is necessary to validate any Employee Pass
+//    freeChildGuestNoBirthdatePass, //will throw an error at any location because birthdate is necessary to validate a Free Child Guest Pass
+//    kitchenNoFirstNamePass,  //will throw an error at any location because first name is necessary to validate any Employee Pass
+//    managerNoLastNamePass, //will throw an error at any location because last name is necessary to validate any Employee Pass
+//    maintenanceNoStreetPass, //will throw an error at any location because street address is necessary to validate any Employee Pass
+//    rideServicesNoCityPass, //will throw an error at any location because city is necessary to validate any Employee Pass
+//    managerNoStatePass,  //will throw an error at any location because state is necessary to validate any Employee Pass
+//    managerNoZipPass //will throw an error at any location because zipcode is necessary to validate any Employee Pass
 ]
 
 

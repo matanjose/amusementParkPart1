@@ -18,7 +18,7 @@ let maintenance = EmployeeArea(name: "Maintenance Area", location: .maintenance)
 
 //to test specific areas, uncomment the line and it will be included in viewdidload()
 let locationsCollection: [Location] = [ //comments describe who should be able to access if requisite data is provided
-    northGate, //This is an entrance to the entire amusement park, Everyone can access. Will provide a happy birthday message if has correct data, otherwise will prompt for birthday info
+  //  northGate, //This is an entrance to the entire amusement park, Everyone can access. Will provide a happy birthday message if has correct data, otherwise will prompt for birthday info
   //  rollerCoaster, //Everyone can access, VIP can skip lines
   //  store, //Demonstrates VIPGuest and Employee discounts
   //  kitchen, // Only manager, maintenance, and food service

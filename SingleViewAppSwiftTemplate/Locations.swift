@@ -220,52 +220,53 @@ extension Location {
         
         let requiredData: [ RequiredData] = pass.entrantType.dataRequiredForProfile
         let passType = pass.entrantType.passType
-        var missingData = ""
-        let missingDataMessage: String = "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData)information is required for a \(passType). This data is either missing or invalid. Please provide the correct data"
+        
+        let missingDataMessage: String = ""
         if requiredData == [.none] {}
         for data in requiredData {
+            
             switch data {
             case .birthdate:
                 guard pass.birthdate != nil else {
-                    missingData = data.rawValue
+                   let missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .firstName:
                 guard pass.firstName != nil else {
-                    missingData = data.rawValue
+                  let  missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .lastName:
                 guard pass.lastName != nil else {
-                    missingData = data.rawValue
+                  let  missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .streetAddress:
                 guard pass.streetAddress != nil else {
-                    missingData = data.rawValue
+                  let   missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .city:
                 guard pass.city != nil else {
-                    missingData = data.rawValue
+                  let  missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .state:
                 guard pass.state != nil else {
-                    missingData = data.rawValue
+                  let  missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .zipCode:
                 guard pass.zipCode != nil else {
-                    missingData = data.rawValue
+                  let  missingData = data.rawValue
                     print("Access Denied")
-                    throw SwipeError.missingRequiredData(description: missingDataMessage)
+                    throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — \(missingData) information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
                 }
             case .none: break
             }
@@ -290,7 +291,7 @@ extension Location {
             let fiveYearsAgoToday = userCalendar.date(from: fiveYearsAgoTodayDateComponents)
             
             guard let bdate = pass.birthdate else {
-                throw SwipeError.missingRequiredData(description: "Error: This pass (ID: \(pass.hashID)) is a \(passType) and requires birthdate information in order to be swiped. This data is either missing or invalid. Please provide the correct data")
+                throw SwipeError.missingRequiredData(description: "Error when attempting to swipe pass (ID:\(pass.hashID)) at \(self.name): Missing Data — birthdate information is required for a \(passType). This data is either missing or invalid. Please provide the correct data")
             }
             
             let dateComparison = userCalendar.compare(bdate, to: fiveYearsAgoToday!, toGranularity: .day)
